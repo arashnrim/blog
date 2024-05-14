@@ -1,0 +1,63 @@
+<footer class="container">
+  <div id="footer__left">
+    <code
+      ><code style="display: inline; color: cyan">~/blog-v2</code> on
+      <code style="display: inline; color: fuchsia">main</code></code
+    >
+    <code
+      ><code style="display: inline; color: lightgreen">%</code> cat thank-you.txt</code
+    >
+    <code>Thanks for stopping by; keep being awesome!</code>
+
+    <code
+      >Made with &lt;3 by <a href="https://arash.codes/#connect">@arashnrim</a>.
+      Wanna <a
+        href="https://github.com/arashnrim/blog"
+        target="_blank"
+        rel="noopener noreferrer">have a look at the code</a
+      >?</code
+    >
+  </div>
+  <div id="footer__right">
+    <!-- 
+    <a href="https://blog.arash.codes">Blog</a>
+    <a href="">CV</a>
+    <a href="">Sandboxed Software</a> -->
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 2px solid #1f1f1f;
+    margin-top: calc(var(--section-padding) / 2);
+    display: flex;
+  }
+
+  #footer__left {
+    display: flex;
+    flex-direction: column;
+    font-size: calc(var(--body) - 0.25em);
+    flex: 1;
+  }
+
+  #footer__left * {
+    font-family: "JetBrains Mono", "Courier New", Courier, monospace !important;
+  }
+
+  #footer__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #footer__right a {
+    width: fit-content;
+    font-size: calc(var(--body) - 0.25em);
+  }
+
+  @media only screen and (min-width: 1024px) {
+    footer {
+      margin-top: calc(var(--section-padding) / 3);
+    }
+  }
+</style>

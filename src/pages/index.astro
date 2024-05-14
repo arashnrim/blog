@@ -1,16 +1,79 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
 
+const mockData = [
+  {
+    title: "Test 1",
+    description: "blah blah blah blah blah blah blah blah blah",
+  },
+  {
+    title: "Test 1",
+    description: "blah blah blah blah blah blah blah blah blah",
+  },
+  {
+    title: "Test 1",
+    description: "blah blah blah blah blah blah blah blah blah",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Hero>
+    <h1 id="hero__title">function()</h1>
+    <span
+      >Arash's blog (→ digital garden soon!) to share experiences, thoughts, and
+      stories about tech as an individual and student.</span
+    >
+  </Hero>
+
+  <section id="preface" class="container">
+    <p>Hello internet!</p>
+    <p>
+      It's pretty weird to think about having a blog today. It's already
+      daunting enough to put a piece of yourself online, and it's another thing
+      trying to practice the craft of writing live. There's some form of
+      permanence in a blog, with scrapers and archivers being out here, but I
+      think it's all the more exciting to share my perspective on things and
+      have it be a part of the internet. Feel free to read through my posts — in
+      a way, they're all tiny fragments that represent a part of me. I hope you
+      enjoy them!
+    </p>
+    <p>
+      I'm also interested in the concept of <strong>digital gardens</strong>.
+      I'm still learning more about them now, and I'm hoping to implement my own
+      version once I have it down. Feel free to reach out if you're into these
+      kinds of things!
+    </p>
+  </section>
+
+  <section id="posts" class="container">
+    {
+      mockData.map((data) => (
+        <Card href="/test" title={data.title} description={data.description} />
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  #hero__title {
+    font-size: var(--title);
+    font-style: italic;
+    font-weight: 800;
+    font-family: "JetBrains Mono", "Courier New", Courier, monospace;
+    margin: 0 0 0.25em 0;
+  }
+
+  #preface > p {
+    max-width: 1260px;
+  }
+
+  #posts {
+    padding-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+  }
+</style>
