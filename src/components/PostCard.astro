@@ -2,15 +2,18 @@
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import { getEntry } from "astro:content";
-const { href, post } = Astro.props;
+const { post } = Astro.props;
 
 interface Props {
-  href: string;
   post: CollectionEntry<"posts">;
 }
 ---
 
-<div class="post" id={post.id} onclick={`window.location.href = ${post.slug}`}>
+<div
+  class="post"
+  id={post.id}
+  onclick={`window.location.href = "/posts/${post.slug}"`}
+>
   <h2>{post.data.title}</h2>
   <p>{post.data.description}</p>
 

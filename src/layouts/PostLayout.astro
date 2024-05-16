@@ -14,3 +14,26 @@ const { title } = Astro.props;
     <slot />
   </main>
 </BaseLayout>
+
+<style is:inline>
+  main > * {
+    line-height: 1.6;
+  }
+
+  img {
+    max-height: 640px;
+    border: 3px solid #1f1f1f;
+    border-radius: var(--radius);
+  }
+
+  .images {
+    display: flex;
+    gap: 2em;
+    overflow-x: scroll;
+  }
+
+  figcaption {
+    color: #666;
+    font-style: italic;
+  }
+</style>

@@ -4,22 +4,20 @@ import Hero from "../components/Hero.astro";
 import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts");
-const metadata = posts
-  .map((post) => post.data)
-  .sort((a, b) => {
-    const aDate = a.updatedDate || a.publishedDate;
-    const bDate = b.updatedDate || b.publishedDate;
-    if (aDate && bDate) {
-      return new Date(bDate).valueOf() - new Date(aDate).valueOf();
-    } else if (aDate) {
-      return -1;
-    } else if (bDate) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
+let posts = await getCollection("posts");
+posts = posts.sort((a, b) => {
+  const aDate = a.data.updatedDate || a.data.publishedDate;
+  const bDate = b.data.updatedDate || b.data.publishedDate;
+  if (aDate && bDate) {
+    return new Date(bDate).valueOf() - new Date(aDate).valueOf();
+  } else if (aDate) {
+    return -1;
+  } else if (bDate) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
 ---
 
 <BaseLayout>
@@ -52,7 +50,7 @@ const metadata = posts
   </section>
 
   <section id="posts" class="container">
-    {posts.map((post) => <PostCard href={post.slug} post={post} />)}
+    {posts.map((post) => <PostCard post={post} />)}
   </section>
 </BaseLayout>
 
