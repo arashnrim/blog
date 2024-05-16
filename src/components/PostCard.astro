@@ -1,0 +1,97 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { getEntry } from "astro:content";
+const { href, post } = Astro.props;
+
+interface Props {
+  href: string;
+  post: CollectionEntry<"posts">;
+}
+---
+
+<div class="post" id={post.id} onclick={`window.location.href = ${post.slug}`}>
+  <h2>{post.data.title}</h2>
+  <p>{post.data.description}</p>
+
+  <div class="post__metadata">
+    <div>
+      <Icon name="solar:calendar-bold-duotone" />
+      <span>
+        {
+          new Date(
+            post.data.updatedDate || post.data.publishedDate
+          ).toLocaleDateString("en-SG", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })
+        }</span
+      >
+    </div>
+    <div>
+      <Icon name="solar:tag-bold-duotone" />
+      <span>
+        {
+          post.data.topics &&
+            post.data.topics.map(async (topic) => {
+              const entry = await getEntry("topics", topic.id);
+              return <span class="badge">{entry.data.name}</span>;
+            })
+        }</span
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .post {
+    padding: 2em;
+    cursor: pointer;
+    border: 3px solid #1f1f1f;
+    transition: border 0.2s;
+    border-radius: var(--radius);
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  .post:hover {
+    background-color: #1f1f1f;
+    border-color: white;
+  }
+
+  .post > * {
+    margin: 0;
+  }
+
+  .post__metadata {
+    margin-top: 2em !important;
+  }
+
+  .post__metadata > *:not(:first-child) {
+    margin-top: 0.5em;
+  }
+
+  .post__metadata > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .badge {
+    border: 2px solid #1f1f1f;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  .badge:hover {
+    background-color: #1f1f1f;
+    border-color: white;
+  }
+
+  .badge:not(:first-child) {
+    margin-left: 0.5em;
+  }
+</style>

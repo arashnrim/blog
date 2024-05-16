@@ -63,7 +63,9 @@
   }
 
   p,
-  span {
+  span,
+  ol,
+  ul {
     font-size: var(--body);
     max-width: 920px;
     line-height: 1.5;
@@ -76,7 +78,8 @@
     font-weight: bold;
   }
 
-  code {
+  code,
+  pre {
     font-family: "JetBrains Mono", "Courier New", Courier, monospace;
   }
 
@@ -127,6 +130,10 @@
     user-select: none;
     animation: float 3s ease-out infinite;
     z-index: -1;
+  }
+
+  [data-icon] {
+    font-size: var(--body);
   }
 
   @media (prefers-reduced-motion: reduce) {
