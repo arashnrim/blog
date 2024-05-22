@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+
+const strings: string[] = [
+  "Uh oh...",
+  "It works on my machine!",
+  "This is embarrassing...",
+  "I've searched everywhere, but...",
+];
+
+const getRandomString = () => {
+  const randomIndex = Math.floor(Math.random() * strings.length);
+  return strings[randomIndex];
+};
+
+const randomString = getRandomString();
+const hasTriedRedirect = Astro.url.pathname.includes("/posts/");
+const slug = Astro.url.pathname.replace("/", "");
+---
+
+<BaseLayout title={randomString}>
+  <main class="container">
+    <Icon name="solar:question-square-bold-duotone" />
+    <h1 class="subtitle">{hasTriedRedirect ? "Still here?" : randomString}</h1>
+    <p>
+      There isn't a page that exists here. If you're here by mistake, you can go
+      back to the <a href="/">home page</a>.
+    </p>
+
+    {
+      !hasTriedRedirect && (
+        <p>
+          If you're coming from the old blog and are looking for a post, try
+          going to <a href={`/posts/${slug}`}>/posts/{slug}</a>.
+        </p>
+      )
+    }
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+  }
+
+  [data-icon] {
+    font-size: calc(var(--title) * 2);
+    margin-bottom: 1rem;
+  }
+</style>
