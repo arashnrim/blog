@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { getEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"posts">;
+}
+const { entry } = Astro.props;
+---
+
+<div class="post__metadata">
+  <div>
+    <Icon name="solar:calendar-bold-duotone" />
+    <span>
+      {
+        new Date(
+          entry.data.updatedDate || entry.data.publishedDate
+        ).toLocaleDateString("en-SG", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+      }</span
+    >
+  </div>
+  <div>
+    <Icon name="solar:tag-bold-duotone" />
+    <span>
+      {
+        entry.data.topics &&
+          entry.data.topics.map(async (topic) => {
+            const entry = await getEntry("topics", topic.id);
+            return <span class="badge">{entry.data.name}</span>;
+          })
+      }</span
+    >
+  </div>
+</div>
+
+<style>
+  .post__metadata > *:not(:first-child) {
+    margin-top: 0.5em;
+  }
+
+  .post__metadata > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .badge {
+    border: 1px solid #1f1f1f;
+    transition:
+      border 0.2s,
+      background-color 0.2s;
+  }
+
+  .badge:hover {
+    border: 1px solid white;
+    background-color: #1f1f1f;
+  }
+
+  .badge:not(:first-child) {
+    margin-left: 0.5em;
+  }
+</style>

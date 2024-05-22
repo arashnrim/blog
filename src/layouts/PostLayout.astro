@@ -1,13 +1,19 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import type { CollectionEntry } from "astro:content";
+import PostMetadata from "../components/PostMetadata.astro";
 
-const { title } = Astro.props;
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+const { post } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={post.data.title}>
   <Hero>
-    <h1 class="title">{title}</h1>
+    <h1 class="title">{post.data.title}</h1>
+    <PostMetadata entry={post} />
   </Hero>
 
   <main class="container">
@@ -20,10 +26,56 @@ const { title } = Astro.props;
     line-height: 1.6;
   }
 
-  img {
-    max-height: 640px;
+  figure {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 920px;
+    overflow-x: scroll;
     border: 3px solid #1f1f1f;
     border-radius: var(--radius);
+    padding: 1em;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  pre {
+    padding: 1em;
+    border: 3px solid #1f1f1f;
+    border-radius: var(--radius);
+    max-width: 920px;
+  }
+
+  blockquote {
+    margin-left: 0;
+    padding: 0.1em 2em;
+    border-left: 5px solid #1f1f1f;
+  }
+
+  h1 {
+    font-size: var(--subtitle);
+  }
+
+  h2 {
+    font-size: calc(var(--subtitle) * 0.9);
+  }
+
+  h3 {
+    font-size: calc(var(--subtitle) * 0.8);
+  }
+
+  h4 {
+    font-size: calc(var(--subtitle) * 0.7);
+  }
+
+  h5,
+  h6 {
+    font-size: var(--body);
+  }
+
+  .post__metadata > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
 
   .images {
@@ -35,5 +87,17 @@ const { title } = Astro.props;
   figcaption {
     color: #666;
     font-style: italic;
+  }
+
+  @media screen and (min-width: 1440px) {
+    figure {
+      height: fit-content;
+      width: fit-content;
+    }
+
+    figure img {
+      max-height: 512px;
+      width: auto;
+    }
   }
 </style>

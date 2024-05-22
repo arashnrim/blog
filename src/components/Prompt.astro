@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+  kind: "info" | "warning" | "danger" | "resource";
+}
+const { title, kind } = Astro.props;
+---
+
+<div class={`prompt ${kind}`}>
+  {title && <span>{title}</span>}
+  <slot />
+</div>
+
+<style>
+  .prompt {
+    padding: 2em;
+    border-radius: var(--radius);
+    width: fit-content;
+  }
+
+  .prompt > span {
+    font-weight: 600;
+  }
+
+  .info {
+    border: 3px solid #1f1f1f;
+    background-color: #1f1f1f0a;
+  }
+</style>

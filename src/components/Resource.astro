@@ -1,0 +1,38 @@
+---
+import Prompt from "./Prompt.astro";
+
+interface Link {
+  title: string;
+  link: string;
+}
+interface Props {
+  links: Link[];
+  customBody?: string;
+}
+const { links, customBody } = Astro.props;
+---
+
+<Prompt kind="resource" title={links.length == 1 ? "Resource" : "Resources"}>
+  {
+    customBody
+      ? customBody
+      : "The resources below were mentioned and may serve to help:"
+  }
+
+  <section class="grid grid-cols-1 gap-5 pt-5 md:grid-cols-2">
+    {
+      links.map((link) => (
+        <a
+          href={link.link}
+          target="_blank"
+          rel="noreferrer"
+          class="resource__link"
+        >
+          <div>
+            <p>{link.title}</p>
+          </div>
+        </a>
+      ))
+    }
+  </section>
+</Prompt>

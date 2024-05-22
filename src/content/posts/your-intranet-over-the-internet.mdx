@@ -21,7 +21,7 @@ I'm no networking geek, but I'd always wished there was a way to link all my dev
 
 [Tailscale](https://tailscale.com) has been the key driver to making my set-up work (well, even!), so here's a small post sharing more about Tailscale and share with you some ways I've been using it that maybe you can take inspiration from.
 
-## The tail at scale
+# The tail at scale
 
 The magic of Tailscale comes from the fact that it creates a mesh network between the devices you set up Tailscale with through a virtual private network. I've only ever known VPNs to be used with third-party companies to obscure some part of your network activity through them instead of your ISP, so it's interesting to see another use case of VPNs here. Believe me, I'm not sure all too much myself about how it works, but I do know that it works so smoothly it's almost magic.
 
@@ -39,19 +39,19 @@ It took me a few visits to their website before I finally started paying attenti
 
 I then began to wonder: would it be possible to make them accessible to each other as they are when they're in the same network?
 
-## Setting up's the easy part
+# Setting up's the easy part
 
 It's really easy getting started with Tailscale. All it takes is installing the client app on each of your devices, and you'll need to access the same common _tailnet_ (their fancy term for network, apparently) by simply signing in through the same credentials. Things are definitely simple enough for my Mac, PC, laptop, tablet, and phone since there are dedicated installers + apps on the respective app stores.
 
 With my Raspberry Pi, as with most things in Linux, an installer script is available, too. I followed their instructions to copy and paste a command in the shell (basically fetching the script then running it) and all's good to go. Remember, although Tailscale's a name you can trust, it's not a bad habit to scrutinise and look through the code of any script you're running before running them!
 
-## The possibilities are endless
+# The possibilities are endless
 
 So, once you've gone through with setting everything up, here's where the fun begins. As long as your devices are online and connected to your tailnet with the Tailscale clients active, you'll be able to interact with them just as if you're in the same network with them. Basically, all the things I wanted to do are now possible! 🥳
 
 Here are some ways I've been using Tailscale with my devices. I'll leave it up to you to determine if they're cool or not.
 
-### Remote SSH
+## Remote SSH
 
 Okay, maybe this _isn't_ that impressive, but it's always nice as a dev to be able to access the shells of your devices through SSH. Tailscale isn't by any means the only way to make your device accessible over the internet via the protocol, but it does so pretty easily with little hoops you need to go through and with reasonable security.
 
@@ -59,7 +59,7 @@ Tailscale natively supports SSH through something called [Tailscale SSH](https:/
 
 Since I have access to the [GitHub Student Developer Pack](https://education.github.com/pack), I've been doing everything SSH-related with [Termius](https://termius.com). It's a nice 'do one thing and do it right' app that does SSH and more (like autocomplete and suggestions!).
 
-### The screen's moving on its own!
+## The screen's moving on its own!
 
 Only recently did I start looking at remote screen sharing and control as a way to connect to my devices and control them from afar. Besides, I think it's a nice flex to friends that you're able to connect to your home PC if you need any added oompf from your GPU at home than the one on your laptop.
 
@@ -67,7 +67,7 @@ I first started by setting up my PC at home with the Remote Desktop Protocol tha
 
 When my internship started around March 2024, I wanted to pick up Swift and Objective-C through making a basic iOS app. Since I have a Mac mini at home, there's no better time to set up remote access to it! macOS natively supports the Virtual Networking Computing protocol, but it was _painfully_ slow — whatever I typed took ages to show up — so I looked elsewhere. I settled on NoMachine and the NX protocol, and they worked pretty well.
 
-#### Wake up!
+### Wake up!
 
 The thing with remote access is that they're dependent on your device being awake (i.e., not sleeping) to receive the request and respond to it. One simple option to address this is to keep your device on all the time, but I don't think that looks good because (a) it's an energy waster and (b) your screen at home will be on and your user account signed in at all times.
 
@@ -98,7 +98,7 @@ alias wake-mac-wifi='sudo etherwake -b -i eth0 DD:EE:FF:AA:BB:CC'
 
 The `-wifi` commands are there just as a backup, since both my PC and Mac have Ethernet connected to them and are the default for connectivity.
 
-### Self-hosting stuff
+## Self-hosting stuff
 
 I mostly use my Raspberry Pi as my little self-hosted server to run light stuff on it. I don't really run too much there as of now apart from my projects (like [Commute](https://github.com/arashnrim/commute) and the [5.0 GPA Student](https://github.com/arashnrim/5.0-gpa-student)), [Portainer](https://portainer.io), and a [Joplin](https://joplinapp.org) server. As with self-hosting things though, projects are gradual and I'll probably host more things as I gain the confidence to manage them over time!
 
@@ -106,7 +106,7 @@ With Tailscale's [MagicDNS](https://tailscale.com/kb/1081/magicdns), you don't e
 
 There may obviously be cases where MagicDNS can break the validation of some things that require the domain name format, so it also handily generates a [fully qualified domain name](https://tailscale.com/kb/1081/magicdns#fully-qualified-domain-names-vs-machine-names) that's basically your machine name + your tailnet name. I'll then have `raspberrypi.my-tailnet.ts.net` as the full domain if needed. Super convenient!
 
-## To wrap up
+# To wrap up
 
 To summarise, here are the reasons I love Tailscale:
 - 🤩 It's fuss-free and so simple to set up + configure. Everything major can be done in the web on the admin console, and adding devices to the network is as easy as running an installer to get the Tailscale client working.
