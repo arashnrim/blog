@@ -1,6 +1,7 @@
 ---
 import GlobalStyles from "../components/GlobalStyles.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 const { title } = Astro.props;
 ---
@@ -12,12 +13,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title || "function()"}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
 
     <Footer />
+    <GlobalStyles />
   </body>
-
-  <GlobalStyles />
 </html>

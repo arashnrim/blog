@@ -1,19 +1,20 @@
 ---
 interface Props {
   title?: string;
-  kind: "info" | "warning" | "danger" | "resource";
+  kind: "info" | "warn" | "danger" | "resource";
 }
 const { title, kind } = Astro.props;
 ---
 
 <div class={`prompt ${kind}`}>
   {title && <span>{title}</span>}
+  <br />
   <slot />
 </div>
 
 <style>
   .prompt {
-    padding: 2em;
+    padding: 1em 2em;
     border-radius: var(--radius);
     width: fit-content;
   }
@@ -23,7 +24,22 @@ const { title, kind } = Astro.props;
   }
 
   .info {
-    border: 3px solid #1f1f1f;
+    border: 1px solid white;
     background-color: #1f1f1f0a;
+  }
+
+  .warn {
+    border: 1px solid #facc15;
+    background-color: #facc150a;
+  }
+
+  .danger {
+    border: 1px solid #ef4444;
+    background-color: #ef44440a;
+  }
+
+  .resource {
+    border: 1px solid #3b82f6;
+    background-color: #3b82f60a;
   }
 </style>

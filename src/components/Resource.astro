@@ -1,5 +1,6 @@
 ---
 import Prompt from "./Prompt.astro";
+import UnstyledAnchor from "./UnstyledAnchor.astro";
 
 interface Link {
   title: string;
@@ -13,13 +14,17 @@ const { links, customBody } = Astro.props;
 ---
 
 <Prompt kind="resource" title={links.length == 1 ? "Resource" : "Resources"}>
-  {
-    customBody
-      ? customBody
-      : "The resources below were mentioned and may serve to help:"
-  }
+  <span
+    >{
+      customBody
+        ? customBody
+        : "The resources below were mentioned and may serve to help:"
+    }</span
+  >
 
-  <section class="grid grid-cols-1 gap-5 pt-5 md:grid-cols-2">
+  <section
+    class="grid grid-cols-1 gap-5 pt-5 md:grid-cols-2 resource__link-container"
+  >
     {
       links.map((link) => (
         <a
@@ -36,3 +41,14 @@ const { links, customBody } = Astro.props;
     }
   </section>
 </Prompt>
+
+<style>
+  .resource__link-container {
+    display: grid;
+    gap: 1em;
+    margin-top: 2em;
+  }
+  .resource__link {
+    padding: 0 1em;
+  }
+</style>

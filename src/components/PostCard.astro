@@ -11,7 +11,7 @@ interface Props {
 
 <UnstyledAnchor href={`/posts/${post.slug}`}>
   <div class="post" id={post.id}>
-    <h2>{post.data.title}</h2>
+    <h2 transition:name={post.data.title}>{post.data.title}</h2>
     <p>{post.data.description}</p>
 
     <PostMetadata entry={post} />
