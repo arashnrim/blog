@@ -1,0 +1,10 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const topics = await getCollection("topics");
+  return topics.map((topic) => ({
+    params: { slug: topic.id },
+  }));
+}
+---
