@@ -1,0 +1,33 @@
+---
+import UnstyledAnchor from "./UnstyledAnchor.astro";
+---
+
+<header class="container">
+  <UnstyledAnchor href="/">
+    <h1 class="logo">fn()</h1>
+  </UnstyledAnchor>
+</header>
+
+<style>
+  header {
+    position: absolute;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: calc(var(--section-padding) - 0.25em - 3px);
+    z-index: 1000;
+  }
+
+  .logo {
+    padding: 0.25em;
+    border: 3px solid transparent;
+    transition:
+      border 0.2s,
+      background-color 0.2s;
+    border-radius: calc(var(--radius) * 0.25);
+  }
+
+  .logo:hover {
+    border: 3px solid white;
+    background-color: #1f1f1f;
+  }
+</style>
