@@ -14,6 +14,8 @@ const getRandomString = () => {
   return strings[randomIndex];
 };
 
+export const prerender = false;
+
 const randomString = getRandomString();
 const hasTriedRedirect = Astro.url.pathname.includes("/posts/");
 const slug = Astro.url.pathname.replace("/", "");
