@@ -1,47 +1,28 @@
-# Astro Starter Kit: Minimal
+![Project banner](docs/banner.svg)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+# function
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Welcome to the repository of function(), my blog (accessible at https://blog.arash.codes)! function() primarily focuses on sharing code snippets I find useful, experiences that I have gone through, and stories that I wish to share with the world.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The source code features the following tech stack:
 
-## 🚀 Project Structure
+|          Technology          | Description of use                                                                                                         |
+| :--------------------------: | :------------------------------------------------------------------------------------------------------------------------- |
+| [Astro](https://astro.build) | The framework used to power the entire website. It allows you to easily create performant content-driven websites.         |
+| [Vercel](https://vercel.com) | The platform used to deploy the website. It allows me to effortlessly publish live changes to the domain at a single push. |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Motivations
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+For a while, I have visited the blogs of a few developers who shared interesting solutions to the problems they've faced that I had as well. I was impressed with how each blog was unique to its own self and the developer itself: content-wise, design-wise, and style-wise. In a way, blogs can be used to share more about an individual — not just a developer — through the way they write, design, and plan.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+That inspired me to create a blog of my own. Not to mention, embarking on a project like this allowed me to expand my horizons with what I know and learn new things while enjoying the process of learning by doing.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contributing
 
-Any static assets, like images, can be placed in the `public/` directory.
+This project is **_not_ accepting major contributions** as it is personal. However, if there is an issue — like a spelling or grammatical error, a visual bug, or other kinds of weird things happening — please feel free to [create an issue](https://github.com/arashnrim/blog/issues/new).
 
-## 🧞 Commands
+If you would like to leave comments about the source code — like possible design and code improvements, or other kinds of feedback — please feel free to [create an issue](https://github.com/arashnrim/blog/issues/new) too if you wish!
 
-All commands are run from the root of the project, from a terminal:
+## Licence
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This repository is made open-source with the [MIT License](https://github.com/arashnrim/blog/blob/main/LICENSE.md), meaning that you are allowed to modify and distribute the source code as well as use it for private and commercial use provided that the licence and copyright notices are retained. However, if you are cloning or forking this project, **I ask that you remove the `src/content` folder** — whatever written in that should rightfully belong to me. For more information, visit the link above to learn what is permitted by the licence.
