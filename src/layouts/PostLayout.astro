@@ -26,16 +26,22 @@ const { post } = Astro.props;
     line-height: 1.6;
   }
 
-  figure {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 920px;
-    overflow-x: scroll;
+  .container > figure {
     border: 3px solid #1f1f1f;
     border-radius: var(--radius);
     padding: 1em;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 1em 0;
+  }
+
+  .container > figure img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  figure > figure {
+    height: 100%;
+    margin: 0;
   }
 
   pre {
@@ -94,14 +100,8 @@ const { post } = Astro.props;
   }
 
   @media screen and (min-width: 1440px) {
-    figure {
-      height: fit-content;
-      width: fit-content;
-    }
-
-    figure img {
-      max-height: 512px;
-      width: auto;
+    .container > figure {
+      max-width: 920px;
     }
   }
 </style>
