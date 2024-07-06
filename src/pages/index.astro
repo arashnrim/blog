@@ -66,8 +66,15 @@ posts = posts.sort((a, b) => {
 
   #posts {
     padding-top: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 1.5em;
+  }
+
+  @media screen and (min-width: 1024px) {
+    #posts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>
