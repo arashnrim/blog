@@ -21,6 +21,19 @@ const { entry } = Astro.props;
           month: "long",
           year: "numeric",
         })
+      }
+      {
+        entry.data.updatedDate && (
+          <span class="post__original-date">
+            {`(first published ${new Date(
+              entry.data.publishedDate
+            ).toLocaleDateString("en-SG", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })})`}
+          </span>
+        )
       }</span
     >
   </div>
@@ -47,6 +60,10 @@ const { entry } = Astro.props;
     display: flex;
     align-items: center;
     gap: 0.5em;
+  }
+
+  .post__original-date {
+    color: #666;
   }
 
   .badge {

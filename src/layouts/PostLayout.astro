@@ -33,6 +33,13 @@ const { post } = Astro.props;
     margin: 1em 0;
   }
 
+  .container > iframe {
+    border: 3px solid #1f1f1f;
+    border-radius: var(--radius);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
   .container > figure img {
     height: 100%;
     width: 100%;
@@ -100,7 +107,8 @@ const { post } = Astro.props;
   }
 
   @media screen and (min-width: 1440px) {
-    .container > figure {
+    .container > figure,
+    .container > iframe {
       max-width: 920px;
     }
   }
