@@ -1,0 +1,36 @@
+---
+const { fromSelf, senderName } = Astro.props;
+---
+
+<p class:list={[{ conversation__self: fromSelf }, "conversation__message"]}>
+  <slot />
+  <br />
+  <span class="conversation__message_sender"
+    >{fromSelf ? "Me" : senderName || ""}</span
+  >
+</p>
+
+<style>
+  .conversation__message {
+    padding: 1em;
+    border-radius: var(--radius);
+    border: 1px solid #1f1f1f;
+  }
+
+  .conversation__message_sender {
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  .conversation__self {
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .conversation__message {
+      max-width: 66%;
+    }
+  }
+</style>
