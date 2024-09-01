@@ -2,13 +2,12 @@
 const { fromSelf, senderName } = Astro.props;
 ---
 
-<p class:list={[{ conversation__self: fromSelf }, "conversation__message"]}>
-  <slot />
-  <br />
+<div class:list={[{ conversation__self: fromSelf }, "conversation__message"]}>
+  <slot class="test" />
   <span class="conversation__message_sender"
     >{fromSelf ? "Me" : senderName || ""}</span
   >
-</p>
+</div>
 
 <style>
   .conversation__message {
