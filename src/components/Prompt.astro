@@ -7,8 +7,15 @@ const { title, kind } = Astro.props;
 ---
 
 <div class={`prompt ${kind}`}>
-  {title && <span>{title}</span>}
-  <br />
+  {
+    title && (
+      <>
+        <span>{title}</span>
+        <br />
+      </>
+    )
+  }
+
   <slot />
 </div>
 
