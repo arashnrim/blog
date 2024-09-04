@@ -1,10 +1,71 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import PostCard from "@components/PostCard.astro";
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const topics = await getCollection("topics");
   return topics.map((topic) => ({
     params: { slug: topic.id },
+    props: { topic },
   }));
 }
+
+const { topic } = Astro.props;
+
+let posts = await getCollection("posts");
+posts = posts.filter((post) =>
+  post.data.topics?.map((topic) => topic.id).includes(topic.id)
+);
+posts = posts.sort((a, b) => {
+  const aDate = a.data.updatedDate || a.data.publishedDate;
+  const bDate = b.data.updatedDate || b.data.publishedDate;
+  if (aDate && bDate) {
+    return new Date(bDate).valueOf() - new Date(aDate).valueOf();
+  } else if (aDate) {
+    return -1;
+  } else if (bDate) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
 ---
+
+<BaseLayout>
+  <Hero>
+    <h1 class="title">{topic.data.name}</h1>
+    <span>{topic.data.description}</span>
+    {topic.data.icon && <Icon name={topic.data.icon} />}
+  </Hero>
+
+  <section id="posts" class="container">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</BaseLayout>
+
+<style>
+  #posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  [data-icon] {
+    position: absolute;
+    height: 256px;
+    width: auto;
+    left: 10%;
+    bottom: 7.5%;
+    opacity: 0.1;
+  }
+
+  @media screen and (min-width: 1024px) {
+    #posts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

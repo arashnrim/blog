@@ -17,6 +17,7 @@ const topics = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string(),
+    icon: z.string().optional(),
   }),
 });
 

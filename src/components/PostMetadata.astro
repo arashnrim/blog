@@ -1,4 +1,5 @@
 ---
+import UnstyledAnchor from "@components/UnstyledAnchor.astro";
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import { getEntry } from "astro:content";
@@ -44,7 +45,11 @@ const { entry } = Astro.props;
         entry.data.topics &&
           entry.data.topics.map(async (topic) => {
             const entry = await getEntry("topics", topic.id);
-            return <span class="badge">{entry.data.name}</span>;
+            return (
+              <UnstyledAnchor href={`/topics/${entry.id}`}>
+                <span class="badge">{entry.data.name}</span>
+              </UnstyledAnchor>
+            );
           })
       }</span
     >
@@ -73,10 +78,10 @@ const { entry } = Astro.props;
       background-color 0.2s;
   }
 
-  /* .badge:hover {
+  .badge:hover {
     border: 1px solid white;
-    background-color: #1f1f1f;
-  } */
+    background-color: #0a0a0a;
+  }
 
   .badge:not(:first-child) {
     margin-left: 0.5em;

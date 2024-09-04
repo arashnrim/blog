@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import UnstyledAnchor from "@components/UnstyledAnchor.astro";
 import PostMetadata from "@components/PostMetadata.astro";
 const { post } = Astro.props;
 
@@ -9,14 +8,21 @@ interface Props {
 }
 ---
 
-<UnstyledAnchor href={`/posts/${post.slug}`}>
-  <div class="post" id={post.id}>
-    <h2 transition:name={post.data.title}>{post.data.title}</h2>
-    <p>{post.data.description}</p>
+<div class="post" id={post.slug}>
+  <h2 transition:name={post.data.title}>{post.data.title}</h2>
+  <p>{post.data.description}</p>
 
-    <PostMetadata entry={post} />
-  </div>
-</UnstyledAnchor>
+  <PostMetadata entry={post} />
+</div>
+
+<script>
+  const posts = document.querySelectorAll(".post");
+  posts.forEach((post) => {
+    post.addEventListener("click", () => {
+      window.location.href = `/posts/${post.id}`;
+    });
+  });
+</script>
 
 <style>
   .post {
@@ -29,6 +35,7 @@ interface Props {
     transition:
       background-color 0.2s,
       border-color 0.2s;
+    cursor: pointer;
   }
 
   .post:hover {
