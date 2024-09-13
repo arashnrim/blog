@@ -1,0 +1,90 @@
+---
+title: "VS Code's remote tunneling feature"
+publishedDate: 2024-09-13
+description: Turns out, VS Code has a pretty helpful and easy-to-use feature allowing you to code remotely through another computer.
+topics:
+  - learning log
+  - code
+---
+
+On its own, VS Code is already pretty cool with remote set ups—where you want to run VS Code as it would be running in a host machine—from your own machine. So far, this has been how I've been developing all along with <dfn id="wsl2"><abbr title="Windows Subsystem for Linux 2">WSL2</abbr></dfn>, and because of first-party support for WSL, it's been so, so seamless developing with it. It's pretty crazy!
+
+With my final-year internship going on, it meant that I'm spending less time at home. My home PC is the one that I've usually been doing my dev work on, and it can get pretty tedious to try and set up the exact same dev environment on my laptop when I do bring it with me to work. It doesn't help, too, that I'm exploring Linux distros on my laptop, so it remains ever volatile as I (possibly) keep distro hopping.
+
+I've been previously aware of how much support VS Code has for remote set ups, but I never explored it past just one PC with WSL installed in it. This little conundrum allowed the chance for me to explore more than just within my home PC.
+
+## How it started
+
+I first started by setting up <dfn id="rdp"><abbr title="Remote Desktop Protocol">RDP</abbr></dfn>[^1] on my home PC so that I can access it from another laptop. If you have a Windows Pro license like I did, you can [configure Remote Desktop](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c) pretty easily. Alone, this means I'm able to connect remotely to my home PC provided that my laptop's in the same network as my home PC. When I'm out and about, though, this obviously wouldn't be the case. What can we do about it?
+
+[Tailscale](/posts/your-intranet-over-the-internet) made it really easy for me to access it no matter where I am. The general gist of it is this: by installing Tailscale clients in every device you want to link together, they'll form a common network no matter which physical networks each device is in. It's kinda like making your own mesh network of devices over the internet; as long as they're connected to the internet and awake, they're available.
+
+In the end, I had this set up where, through my Tailscale network, I'm able to reach my home PC when I need to and use RDP to stream and control it from wherever I am (like work). This worked pretty well, but I realised that the performance wasn't as good for coding.
+
+<figure>
+  <img src="/images/vscode-remote-tunneling/001.jpg" />
+  <figcaption>
+    How my set up looked like at first with Tailscale and RDP.
+  </figcaption>
+</figure>
+
+The main drawback was the fact that there was some _huge_ typing delay between my laptop and computer. It could be the latency and the fact that RDP on its own was trying to stream and send large amounts of data at one shot, but it basically meant that it was kinda painful to type and wait a second or two for what you typed to show up. And, you know, coding requires you to type a lot, and this kind of latency easily grew on my nerves a little bit.
+
+So what other options are there that we can use?
+
+## You name it, we got it
+
+Whether you've used it to set up WSL or not, there's an official first-party extension pack to VS Code that enables you to develop on it remotely. It's called [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) (wow, novel name) and it's basically a party pack of different kinds of ways you can remotely use VS Code, whether as a host or a client.
+
+I've used the Remote Development pack to connect WSL running in my home PC when I'm doing dev work on it, but I only recently realised that VS Code supports making basically any VS Code instance a server through remote tunneling.
+
+If you bring up your command palette (Ctrl/Cmd + Shift + P) and type in "Remote Tunnels", you'd see an option to enable remote tunnels. You're then asked to sign in with either GitHub or Microsoft, but once you're done, set up is done. That's crazy given how little effort you need to start this thing!
+
+Back at my laptop, all I need to start developing as if I was using my home PC is to connect to the remote tunnel I've enabled. It turns out that a reverse proxy of sorts has been sorted out by the extension when you enabled remote tunnels on your host PC, so you don't even need something like a VPN to connect to it! In fact, I'm pretty sure it generates a URL that you can then use to instantly connect and get started. Feels like magic, really.
+
+<figure>
+  <img src="/images/vscode-remote-tunneling/002.jpg" />
+  <figcaption>
+    How my set up looked like with remote tunelling enabled.
+  </figcaption>
+</figure>
+
+## `code` vs `code`
+
+While trying to set up remote tunneling in my WSL distro, I realised that the `code` command I was running complained about not having a `tunnel` command even though everything, VS Code's documentation included, was mentioning that it should.
+
+A helpful Stack Overflow post shed a little more light on what was happening: when interfacing WSL with the VS Code running in Windows, only a lightweight server distro version is installed. It acts as a proxy between running stuff in WSL and Windows.
+
+Instead, we're told to install the VS Code CLI that we can find [on its homepage](https://code.visualstudio.com). It's slightly weird because the result is you having two different `code` commands to call: one (`code`) that acts as the proxy to the Windows VS Code, and another (`./code`) that actually contains a proper instance of the VS Code CLI you can enable remote tunneling with.
+
+There was a discussion at some point to see if the two can be merged, but it's been a while and there hasn't been an update since. Best not to keep your hopes up!
+
+import Resource from "@components/Resource.astro";
+
+<Resource
+  links={[
+    {
+      title:
+        "Stack Overflow: code tunnel -h doesn't list options and doesn't open a tunnel to WSL",
+      link: "https://stackoverflow.com/q/75356494",
+    },
+    {
+      title: "GitHub: Code tunnel under WSL is unable to start using CLI",
+      link: "https://github.com/microsoft/vscode/issues/171196",
+    },
+  ]}
+/>
+
+## TL;DR
+
+1. Install the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)—or if you like living life in pain, you can manually download the different Remote extensions (like Remote - Tunnels).
+2. On your host PC, open the command palette and select **Remote-Tunnels: Turn on Remote Tunnel Access...**
+3. Sign in with either GitHub or Microsoft. If all's good, you're good to go!
+4. On your other PC, open the command palette and select **Remote-Tunnels: Connect to Tunnel...**
+5. Sign in with either GitHub or Microsoft, and you're connected!
+
+Another thing: I noticed that the system needs to be online or at least _non-idle_ before you can connect to it properly. With WSL, this meant having a terminal window with a distro open and in the background. With my Raspberry Pi, this meant maintaining an active terminal session. There are ways around it, but I haven't had the time to explore it much just yet.
+
+Thanks for reading!
+
+[^1]: Just one of the many, many protocols out there that lets you connect to and remotely control a computer. This one's made by Microsoft, so of course it'd be "the most ideal" pick for Windows. I noticed that, at least Windows to Windows, RDP worked surprisingly well. The resolution it was able to display at and the responsiveness\* keep making me believe I was controlling my laptop when I was my home PC.
