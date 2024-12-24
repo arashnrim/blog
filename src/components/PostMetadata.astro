@@ -40,7 +40,7 @@ const { entry } = Astro.props;
   </div>
   <div>
     <Icon name="solar:tag-bold-duotone" />
-    <span>
+    <span class="post__tags">
       {
         entry.data.topics &&
           entry.data.topics.map(async (topic) => {
@@ -69,6 +69,12 @@ const { entry } = Astro.props;
 
   .post__original-date {
     color: #666;
+  }
+
+  .post__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
   }
 
   .badge {
