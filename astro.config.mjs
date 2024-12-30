@@ -9,7 +9,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
   site: "https://blog.arash.codes",
   integrations: [
     mdx({
