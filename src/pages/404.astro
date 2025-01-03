@@ -42,13 +42,19 @@ const slug = Astro.url.pathname.replace("/", "");
 </BaseLayout>
 
 <style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 50vh;
+    flex: 1;
   }
 
   [data-icon] {
