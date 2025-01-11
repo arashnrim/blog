@@ -46,8 +46,8 @@ const { entry } = Astro.props;
           entry.data.topics.map(async (topic) => {
             const entry = await getEntry("topics", topic.id);
             return (
-              <UnstyledAnchor href={`/topics/${entry.id}`}>
-                <span class="badge">{entry.data.name}</span>
+              <UnstyledAnchor href={`/topics/${entry?.id}`}>
+                <span class="badge">{entry?.data.name}</span>
               </UnstyledAnchor>
             );
           })
