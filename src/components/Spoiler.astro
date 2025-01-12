@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+import { v4 } from "uuid";
+
+interface Props {
+  title?: string;
+  showIcon?: boolean;
+  blurOnFocusLost?: boolean;
+}
+
+const {
+  title = "Spoiler: ",
+  showIcon = true,
+  blurOnFocusLost = false,
+} = Astro.props;
+
+const id = `id-${v4().split("-")[0]}`;
+console.log(id);
+---
+
+<span>
+  {showIcon && <Icon name="solar:danger-triangle-bold-duotone" />}
+  {title && <span>{title}</span>}
+  <span class="spoiler-content" id={id}><slot /></span>
+</span>
+
+<script define:vars={{ blurOnFocusLost, id }}>
+  const spoilerContent = document.querySelector(`#${id}`);
+  "mouseenter touchstart".split(" ").forEach((event) => {
+    spoilerContent?.addEventListener(event, () => {
+      spoilerContent.classList.add("show-spoiler");
+    });
+  });
+
+  if (blurOnFocusLost) {
+    "mouseleave touchend".split(" ").forEach((event) => {
+      spoilerContent?.addEventListener(event, () => {
+        spoilerContent.classList.remove("show-spoiler");
+      });
+    });
+  }
+</script>
+
+<style>
+  .spoiler-content {
+    filter: blur(0.25em);
+    transition: filter 0.2s ease-in-out;
+  }
+
+  .show-spoiler {
+    filter: none;
+  }
+
+  [data-icon] {
+    vertical-align: middle;
+  }
+</style>

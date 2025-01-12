@@ -38,6 +38,9 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      uuid:
+        specifier: ^11.0.5
+        version: 11.0.5
 
 packages:
 
@@ -2409,6 +2412,10 @@ packages:
         optional: true
       uploadthing:
         optional: true
+
+  uuid@11.0.5:
+    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
+    hasBin: true
 
   vfile-location@5.0.2:
     resolution: {integrity: sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==}
@@ -5596,6 +5603,8 @@ snapshots:
       node-fetch-native: 1.6.4
       ofetch: 1.4.1
       ufo: 1.5.4
+
+  uuid@11.0.5: {}
 
   vfile-location@5.0.2:
     dependencies:
