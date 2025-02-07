@@ -1,12 +1,24 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   title?: string;
-  kind: "info" | "warn" | "danger" | "resource";
+  icon?: string;
+  kind: "info" | "warn" | "danger" | "resource" | "muted";
 }
-const { title, kind } = Astro.props;
+const { title, icon: customIcon, kind } = Astro.props;
+const icon = {
+  info: "solar:info-circle-bold-duotone",
+  warn: "solar:danger-triangle-bold-duotone",
+  danger: "solar:danger-bold-duotone",
+  resource: "solar:link-minimalistic-bold-duotone",
+  muted: "solar:info-circle-bold-duotone",
+};
 ---
 
 <div class={`prompt ${kind}`}>
+  <Icon name={customIcon || icon[kind]} />
+
   {
     title && (
       <>
@@ -16,37 +28,91 @@ const { title, kind } = Astro.props;
     )
   }
 
+  <!-- <div class="prompt__content">
+    <slot />
+  </div> -->
+
   <slot />
 </div>
 
 <style>
+  [data-icon] {
+    font-size: 12em;
+    position: absolute;
+    opacity: 0.1;
+    transform: rotate(10deg);
+    left: -10%;
+    top: -25%;
+    pointer-events: none;
+  }
+
   .prompt {
-    padding: 1em 2em;
+    padding: 1.75em 2em;
     border-radius: var(--radius);
-    width: fit-content;
+    position: relative;
+    overflow: hidden;
   }
 
   .prompt > span {
-    font-weight: 600;
+    font-family: Redaction, Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
   }
 
   .info {
     border: 3px solid white;
     background-color: #1f1f1f0a;
+
+    [data-icon] {
+      color: white;
+    }
   }
 
   .warn {
     border: 3px solid #facc15;
     background-color: #facc150a;
+
+    [data-icon] {
+      color: #facc15;
+    }
   }
 
   .danger {
     border: 3px solid #ef4444;
     background-color: #ef44440a;
+
+    [data-icon] {
+      color: #ef4444;
+    }
   }
 
   .resource {
     border: 3px solid #3b82f6;
     background-color: #3b82f60a;
+
+    [data-icon] {
+      color: #3b82f6;
+    }
+  }
+
+  .muted {
+    border: 3px solid #2a2a2a;
+    background-color: #2a2a2a0a;
+
+    [data-icon] {
+      color: #2a2a2a;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    [data-icon] {
+      left: -5%;
+    }
   }
 </style>
+
+<!-- <style is:inline>
+  .prompt__content * {
+    font-size: var(--body);
+    max-width: none;
+  }
+</style> -->

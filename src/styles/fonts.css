@@ -107,3 +107,28 @@
   font-display: swap;
   src: url("/fonts/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2");
 }
+
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/Redaction_20-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  display: swap;
+}
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/Redaction_20-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  display: swap;
+}
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/Redaction_20-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  display: swap;
+}

@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import PostCard from "@components/PostCard.astro";
 import { getCollection } from "astro:content";
+import Prompt from "@components/Prompt.astro";
 
 let posts = await getCollection("posts");
 posts = posts.sort((a, b) => {
@@ -43,6 +44,18 @@ posts = posts.sort((a, b) => {
       version once I have it down. Feel free to reach out if you're into these
       kinds of things!
     </p>
+
+    <Prompt title="Two halves, one ecosystem" icon="ph:plant" kind="muted">
+      <p style="max-width: none; margin: 0">
+        I’m trying out something new to bring this and my <a
+          href="https://garden.arash.codes">digital garden</a
+        > together as <a
+          href="https://garden.arash.codes/meta/two-halves-one-ecosystem"
+          >sister projects</a
+        > that frequently interact with each other. Watch this space as I move things
+        about and figure stuff out!
+      </p>
+    </Prompt>
   </section>
 
   <section id="posts" class="container">

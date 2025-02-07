@@ -14,7 +14,7 @@ export default defineConfig({
     mdx({
       syntaxHighlight: "shiki",
       shikiConfig: {
-        theme: codeTheme,
+        theme: "aurora-x",
       },
       remarkPlugins: [remarkToc],
     }),

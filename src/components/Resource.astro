@@ -17,7 +17,7 @@ const { links, customBody } = Astro.props;
     >{
       customBody
         ? customBody
-        : "The resources below were mentioned and may serve to help:"
+        : "These resources were mentioned and might be helpful to you:"
     }</span
   >
 
@@ -45,8 +45,9 @@ const { links, customBody } = Astro.props;
   .resource__link-container {
     display: grid;
     gap: 1em;
-    margin-top: 2em;
+    margin-top: 2em !important;
   }
+
   .resource__link {
     padding: 0 1em;
   }

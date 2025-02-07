@@ -16,100 +16,130 @@ const { post } = Astro.props;
     <PostMetadata entry={post} />
   </Hero>
 
-  <main class="container">
+  <main class="container" id="post-content">
     <slot />
   </main>
 </BaseLayout>
 
 <style is:inline>
-  main > * {
-    line-height: 1.6;
-  }
+  #post-content {
+    * {
+      line-height: 1.6;
+    }
 
-  .container > figure {
-    border: 3px solid #1f1f1f;
-    border-radius: var(--radius);
-    padding: 1em;
-    margin: 1em 0;
-  }
+    figure {
+      border: 3px solid #1f1f1f;
+      border-radius: var(--radius);
+      padding: 1em;
+      margin: 1em 0;
+      max-width: 920px;
+    }
 
-  .container > iframe {
-    border: 3px solid #1f1f1f;
-    border-radius: var(--radius);
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
+    iframe {
+      border: 3px solid #1f1f1f;
+      border-radius: var(--radius);
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
 
-  .container > figure img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-  }
+    figure img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 0.5em;
+    }
 
-  figure > figure {
-    height: 100%;
-    margin: 0;
-  }
+    figure > figure {
+      height: 100%;
+      margin: 0;
+    }
 
-  pre {
-    padding: 1em;
-    border: 3px solid #1f1f1f;
-    border-radius: var(--radius);
-    max-width: 920px;
-  }
+    figure figcaption > * {
+      font-size: 1em;
+      margin: 0.5em 0 0 0;
+    }
 
-  blockquote {
-    margin-left: 0;
-    padding: 0.1em 2em;
-    border-left: 5px solid #1f1f1f;
-  }
+    figure:has(figure) {
+      display: flex;
+      gap: 2em;
+      overflow-x: scroll;
+      align-items: center;
+    }
 
-  h1 {
-    font-size: var(--subtitle);
-  }
+    code:not(pre code) {
+      padding: 0.1em 0.5em;
+      background-color: #1f1f1f;
+      font-size: calc(var(--body) * 0.9);
+      border-radius: 0.5em;
+    }
 
-  h2 {
-    font-size: calc(var(--subtitle) * 0.9);
-  }
+    pre {
+      padding: 1em;
+      border: 3px solid #1f1f1f;
+      border-radius: var(--radius);
+      max-width: 920px;
+    }
 
-  h3 {
-    font-size: calc(var(--subtitle) * 0.8);
-  }
+    pre * {
+      font-size: calc(var(--body) * 0.9);
+    }
 
-  h4 {
-    font-size: calc(var(--subtitle) * 0.7);
-  }
+    blockquote {
+      margin-left: 0;
+      padding: 0.1em 2em;
+      border-left: 5px solid #1f1f1f;
+    }
 
-  h5,
-  h6 {
-    font-size: var(--body);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: var(--subtitle);
+    }
+
+    h2 {
+      font-size: calc(var(--subtitle) * 0.9);
+    }
+
+    h3 {
+      font-size: calc(var(--subtitle) * 0.8);
+    }
+
+    h4 {
+      font-size: calc(var(--subtitle) * 0.7);
+    }
+
+    h5,
+    h6 {
+      font-size: var(--body);
+    }
+
+    .prompt {
+      margin: 0 -2em;
+      max-width: 920px;
+    }
+
+    .prompt > * {
+      margin: 0;
+    }
+
+    @media screen and (min-width: 1440px) {
+      .container > figure,
+      .container > iframe {
+        max-width: 920px;
+      }
+    }
   }
 
   .post__metadata > div {
     display: flex;
     align-items: center;
     gap: 0.5em;
-  }
-
-  .prompt > * {
-    margin: 0;
-  }
-
-  .images {
-    display: flex;
-    gap: 2em;
-    overflow-x: scroll;
-  }
-
-  figcaption {
-    color: #666;
-    font-style: italic;
-  }
-
-  @media screen and (min-width: 1440px) {
-    .container > figure,
-    .container > iframe {
-      max-width: 920px;
-    }
   }
 </style>
