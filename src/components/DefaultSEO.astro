@@ -1,0 +1,39 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<title>{title ? `${title} | function()` : "function()"}</title>
+<meta
+  name="description"
+  content="Arash's blog to share experiences, thoughts, and stories about tech as an individual and student."
+/>
+
+<!-- Open Graph -->
+<meta
+  property="og:title"
+  content={title ? `${title} | function()` : "function()"}
+/>
+<meta property="og:type" content="website" />
+<meta
+  property="og:description"
+  content="Arash's blog to share experiences, thoughts, and stories about tech as an individual and student."
+/>
+<meta property="og:locale" content="en_SG" />
+<meta property="og:site_name" content="function()" />
+<meta property="og:url" content={Astro.url} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@arashnrim" />
+<meta
+  name="twitter:description"
+  content="Arash's blog to share experiences, thoughts, and stories about tech as an individual and student."
+/>
+<meta
+  name="twitter:title"
+  content={title ? `${title} | function()` : "function()"}
+/>

@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+const data = post.data;
+const topics = await getCollection("topics");
+const topicNames =
+  data.topics?.map((topic) => {
+    const topicData = topics.find((t) => t.id === topic.id);
+    return topicData ? topicData.data.name : "";
+  }) || [];
+
+console.log(data.publishedDate.toDateString());
+---
+
+<title>{`${data.title} | function()`}</title>
+<meta name="description" content={data.description} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={data.title} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={Astro.url} />
+{
+  data.description && (
+    <meta property="og:description" content={data.description} />
+  )
+}
+<meta property="og:locale" content="en_SG" />
+<meta property="og:site_name" content="function()" />
+<meta
+  property="article:published_time"
+  content={data.publishedDate.toISOString().split("T")[0]}
+/>
+{
+  data.updatedDate && (
+    <meta
+      property="article:modified_time"
+      content={data.updatedDate.toISOString().split("T")[0]}
+    />
+  )
+}
+{
+  topicNames &&
+    topicNames.map((topic) => <meta property="article:tag" content={topic} />)
+}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@arashnrim" />
+{
+  data.description && (
+    <meta name="twitter:description" content={data.description} />
+  )
+}
+<meta name="twitter:title" content={data.title} />

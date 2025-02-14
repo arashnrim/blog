@@ -10,7 +10,7 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout post={post}>
   <Hero>
     <h1 class="title" transition:name={post.data.title}>{post.data.title}</h1>
     <PostMetadata entry={post} />
