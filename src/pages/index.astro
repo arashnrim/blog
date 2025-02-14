@@ -4,6 +4,8 @@ import Hero from "@components/Hero.astro";
 import PostCard from "@components/PostCard.astro";
 import { getCollection } from "astro:content";
 import Prompt from "@components/Prompt.astro";
+import { Icon } from "astro-icon/components";
+import UnstyledAnchor from "@components/UnstyledAnchor.astro";
 
 let posts = await getCollection("posts");
 posts = posts.sort((a, b) => {
@@ -56,6 +58,13 @@ posts = posts.sort((a, b) => {
         about and figure stuff out!
       </p>
     </Prompt>
+
+    <section id="rss">
+      <p>Alternative ways to read:</p>
+      <UnstyledAnchor href="/rss.xml">
+        <Icon name="ph:rss-fill" />
+      </UnstyledAnchor>
+    </section>
   </section>
 
   <section id="posts" class="container">
@@ -78,6 +87,19 @@ posts = posts.sort((a, b) => {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+  }
+
+  #rss {
+    margin-top: 2em;
+  }
+
+  #rss * {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  #rss [data-icon] {
+    font-size: calc(var(--body) * 1.5);
   }
 
   @media screen and (min-width: 1024px) {
