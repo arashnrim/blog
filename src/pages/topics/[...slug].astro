@@ -4,6 +4,7 @@ import Hero from "@components/Hero.astro";
 import PostCard from "@components/PostCard.astro";
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
+import Search from "@components/Search.astro";
 
 export async function getStaticPaths() {
   const topics = await getCollection("topics");
@@ -41,12 +42,20 @@ posts = posts.sort((a, b) => {
     {topic.data.icon && <Icon name={topic.data.icon} />}
   </Hero>
 
+  <section id="search-container" class="container">
+    <Search />
+  </section>
+
   <section id="posts" class="container">
     {posts.map((post) => <PostCard post={post} />)}
   </section>
 </BaseLayout>
 
 <style>
+  #search-container {
+    padding-bottom: 0;
+  }
+
   #posts {
     display: flex;
     flex-direction: column;

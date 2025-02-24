@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 import Prompt from "@components/Prompt.astro";
 import { Icon } from "astro-icon/components";
 import UnstyledAnchor from "@components/UnstyledAnchor.astro";
+import Search from "@components/Search.astro";
 
 let posts = await getCollection("posts");
 posts = posts.sort((a, b) => {
@@ -65,6 +66,10 @@ posts = posts.sort((a, b) => {
         <Icon name="ph:rss-fill" />
       </UnstyledAnchor>
     </section>
+
+    <section id="search-container">
+      <Search />
+    </section>
   </section>
 
   <section id="posts" class="container">
@@ -90,7 +95,7 @@ posts = posts.sort((a, b) => {
   }
 
   #rss {
-    margin-top: 2em;
+    margin: 2em 0;
   }
 
   #rss * {

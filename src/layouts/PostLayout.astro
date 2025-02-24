@@ -12,11 +12,17 @@ const { post } = Astro.props;
 
 <BaseLayout post={post}>
   <Hero>
-    <h1 class="title" transition:name={post.data.title}>{post.data.title}</h1>
+    <h1
+      class="title"
+      transition:name={post.data.title}
+      data-pagefind-meta="title"
+    >
+      {post.data.title}
+    </h1>
     <PostMetadata entry={post} />
   </Hero>
 
-  <main class="container" id="post-content">
+  <main class="container" id="post-content" data-pagefind-body>
     <slot />
   </main>
 </BaseLayout>
