@@ -25,5 +25,11 @@
   },
   "devDependencies": {
     "pagefind": "^1.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }
