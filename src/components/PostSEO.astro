@@ -14,8 +14,6 @@ const topicNames =
     const topicData = topics.find((t) => t.id === topic.id);
     return topicData ? topicData.data.name : "";
   }) || [];
-
-console.log(data.publishedDate.toDateString());
 ---
 
 <title>{`${data.title} | function()`}</title>

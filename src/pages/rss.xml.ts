@@ -16,7 +16,7 @@ export const GET: APIRoute = async (context) => {
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.publishedDate,
-      link: `/posts/${post.slug}`,
+      link: `/posts/${post.id}`,
       categories:
         post.data.topics?.map((topic) => {
           const topicData = topics.find((t) => t.id === topic.id);

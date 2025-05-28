@@ -42,9 +42,9 @@ posts = posts.sort((a, b) => {
     {topic.data.icon && <Icon name={topic.data.icon} />}
   </Hero>
 
-  <section id="search-container" class="container">
+  <!-- <section id="search-container" class="container">
     <Search />
-  </section>
+  </section> -->
 
   <section id="posts" class="container">
     {posts.map((post) => <PostCard post={post} />)}
@@ -76,6 +76,12 @@ posts = posts.sort((a, b) => {
     #posts {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1536px) {
+    #posts {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
