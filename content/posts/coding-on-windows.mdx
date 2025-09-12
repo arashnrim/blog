@@ -2,8 +2,8 @@
 title: "Coding on Windows"
 publishedDate: 2022-05-22
 description: Discover what I've learnt about coding when switching from macOS to Windows.
-topics: 
-   - learning log
+topics:
+  - learning log
 ---
 
 Sometime last month, I had to switch computers for my polytechnic studies. I was quite excited for switching to a new computer, since I've been using the same one for about four years. I will miss my old computer (a 13-inch MacBook Pro from 2017), but I'm really stoked about the adventures I'll have with my new one (an IdeaPad Slim 5 Pro)!
@@ -46,7 +46,7 @@ In other words, WSL allows you to run the shell of a Linux distribution (for ins
 
 1. To get started, all I had to do was run the install command.
 
-   ```
+   ```sh
    wsl --install
    ```
 
@@ -65,7 +65,10 @@ After reading a little more about it, I settled on using WSL for anything coding
     src="/images/coding-on-windows/003.png"
     alt="A screenshot of code with WSL: Ubuntu at the bottom"
   />
-  <figcaption>The "WSL: Ubuntu" bit at the status bar shows that I'm running this from WSL!</figcaption>
+  <figcaption>
+    The "WSL: Ubuntu" bit at the status bar shows that I'm running this from
+    WSL!
+  </figcaption>
 </figure>
 
 ## yadm
@@ -74,13 +77,13 @@ As mentioned earlier, I keep my dotfiles backed up in a dotfiles repository host
 
 1. First off, I had to install yadm. Fortunately for me, it's available as a package in `apt`. It's as simple as running the install command!
 
-   ```
+   ```sh
    sudo apt install yadm
    ```
 
 2. Next, I had to clone my dotfiles repository. Since I had a [bootstrap file](https://yadm.io/docs/bootstrap) to clean up unnecessary files (like the LICENSE and README files), I ran that as well.
 
-   ```
+   ```sh
    yadm clone https://github.com/arashnrim/dotfiles -b main -m main
    ```
 
@@ -88,7 +91,7 @@ As mentioned earlier, I keep my dotfiles backed up in a dotfiles repository host
 
 4. I realised that the `fish` shell broke if you were to install `fish` as-is from `apt` as [Tide](https://github.com/IlanCosman/tide), my `fish` prompt of choice, required the latest version. After a quick search, I realised that you had to subscribe to [`fish`'s version 3 repository](https://launchpad.net/~fish-shell/+archive/ubuntu/release-3) for `apt` before installing it again.
 
-   ```
+   ```sh
    sudo apt-add-repository ppa:fish-shell/release-3
    sudo apt update
    sudo apt install fish
@@ -108,21 +111,20 @@ Installing it was quite a breeze, too.
 
 3. Afterwards, I installed the package and configured GCM.
 
-   ```
+   ```sh
    sudo dpkg -i [path-to-package]
    git-credential-manager-core configure
    ```
 
 4. Next, I altered the .gitconfig file to use `gpg` as the `credentialStore` and installed `pass`.
 
-   ```
-   # in .gitconfig
+   ```text =".gitconfig"
    [credential]
        credentialStore = gpg
        # ...
    ```
 
-   ```
+   ```sh
    sudo apt install pass
    gpg --list-keys # To take note of your key's ID!
    pass init [key ID]

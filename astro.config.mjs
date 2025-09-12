@@ -7,15 +7,26 @@ import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
+import expressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.arash.codes",
   integrations: [
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-        theme: "aurora-x",
+    expressiveCode({
+      theme: ["github-dark-default"],
+      styleOverrides: {
+        uiFontFamily:
+          '"General Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
+        codeFontFamily: '"JetBrains Mono", "Courier New", Courier, monospace',
+        codeFontSize: "calc(var(--body) * 0.9)",
       },
+    }),
+    mdx({
+      // syntaxHighlight: "shiki",
+      // shikiConfig: {
+      //   theme: "aurora-x",
+      // },
       remarkPlugins: [remarkToc],
     }),
     icon(),

@@ -2,8 +2,8 @@
 title: "Code readability"
 publishedDate: 2022-07-09
 description: Understand my perspective on code readability and what it means to me when developing.
-topics: 
-   - code
+topics:
+  - code
 ---
 
 Code readability is something I find important, but when writing code (especially in a language that I'm reasonably familiar with), it tends to become an oversight. The consequences of code readability often isn't instantly noticeable if you're working alone, but when working together with others, it's important to remember to write code that other people can understand!
@@ -36,21 +36,20 @@ My language of choice at the time of writing is TypeScript, and ESLint is an exc
 
 0. To begin, install ESLint, Prettier, and Prettier's ESLint config and plugin as dev dependencies.
 
-   ```
+   ```sh
    # Of course, you can use your Node package manager of choice!
    pnpm i -D eslint prettier eslint-config-prettier eslint-plugin-prettier
    ```
 
 1. Next, initialise ESLint in your repository.
 
-   ```
+   ```sh
    pnpx eslint --init
    ```
 
 2. Follow the wizard and remove any plugins that ESLint has installed by default (except for the TypeScript plugin if you're using TypeScript, obviously), then add `plugin:prettier/recommended`.
 
-   ```
-   # eslintrc.*
+   ```sh title="eslintrc.*"
    "plugins": ["plugin:prettier/recommended"]
    ```
 
