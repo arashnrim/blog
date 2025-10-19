@@ -1,9 +1,10 @@
 ---
+import DefaultSEO from "@components/DefaultSEO.astro";
+import Footer from "@components/Footer.astro";
 import GlobalStyles from "@components/GlobalStyles.astro";
 import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import DefaultSEO from "@components/DefaultSEO.astro";
 import PostSEO from "@components/PostSEO.astro";
+import { ClientRouter } from "astro:transitions";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, post } = Astro.props;
       href={new URL("rss.xml", Astro.site)}
     />
     {post ? <PostSEO post={post} /> : <DefaultSEO title={title} />}
+    <ClientRouter />
   </head>
   <body>
     <Header />

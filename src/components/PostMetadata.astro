@@ -1,13 +1,16 @@
 ---
 import UnstyledAnchor from "@components/UnstyledAnchor.astro";
-import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
-import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
 
+type Topic = CollectionEntry<"topics">;
 interface Props {
   entry: CollectionEntry<"posts">;
 }
+
 const { entry } = Astro.props;
+const topics: Topic[] | undefined = await getEntries(entry.data.topics);
 ---
 
 <div class="post__metadata">
@@ -42,17 +45,14 @@ const { entry } = Astro.props;
     <Icon name="solar:tag-bold-duotone" />
     <span class="post__tags">
       {
-        entry.data.topics &&
-          entry.data.topics.map(async (topic) => {
-            const entry = await getEntry("topics", topic.id);
-            return (
-              <UnstyledAnchor href={`/topics/${entry?.id}`}>
-                <span class="badge">{entry?.data.name}</span>
-              </UnstyledAnchor>
-            );
-          })
-      }</span
-    >
+        topics &&
+          topics.map((topic) => (
+            <UnstyledAnchor href={`/topics/${topic.id}`}>
+              <span class="badge">{topic.data.name}</span>
+            </UnstyledAnchor>
+          ))
+      }
+    </span>
   </div>
 </div>
 

@@ -1,10 +1,10 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import PostCard from "@components/PostCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import Search from "@components/Search.astro";
 
 export async function getStaticPaths() {
   const topics = await getCollection("topics");
@@ -14,30 +14,25 @@ export async function getStaticPaths() {
   }));
 }
 
-const { topic } = Astro.props;
+type Topic = CollectionEntry<"topics">;
 
+const { topic } = Astro.props;
 let posts = await getCollection("posts");
 posts = posts.filter((post) =>
-  post.data.topics?.map((topic) => topic.id).includes(topic.id)
+  post.data.topics?.map((topic: Topic) => topic.id).includes(topic.id)
 );
 posts = posts.sort((a, b) => {
   const aDate = a.data.updatedDate || a.data.publishedDate;
   const bDate = b.data.updatedDate || b.data.publishedDate;
-  if (aDate && bDate) {
-    return new Date(bDate).valueOf() - new Date(aDate).valueOf();
-  } else if (aDate) {
-    return -1;
-  } else if (bDate) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return (bDate?.valueOf() ?? 0) - (aDate?.valueOf() ?? 0);
 });
 ---
 
 <BaseLayout>
   <Hero>
-    <h1 class="title">{topic.data.name}</h1>
+    <h1 class="title">
+      {topic.data.name}
+    </h1>
     <span>{topic.data.description}</span>
     {topic.data.icon && <Icon name={topic.data.icon} />}
   </Hero>
