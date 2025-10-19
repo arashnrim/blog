@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const topics: Topic[] | undefined = await getEntries(entry.data.topics);
+const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
 ---
 
 <div class="post__metadata">

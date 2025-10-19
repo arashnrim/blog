@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build && pagefind --site dist/client && cp -r dist/client/pagefind public/",
+    "check": "astro check",
     "preview": "astro preview",
     "astro": "astro"
   },
