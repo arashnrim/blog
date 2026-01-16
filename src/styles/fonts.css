@@ -1,134 +1,35 @@
 @font-face {
   font-family: "General Sans";
-  font-style: normal;
-  font-weight: 500;
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2-variations");
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2") tech("variations");
+  font-weight: 500 700;
   font-display: swap;
-  src: url("/fonts/GeneralSans-Medium.woff") format("woff"),
-    url("/fonts/GeneralSans-Medium.woff2") format("woff2");
+  font-style: normal;
 }
 
 @font-face {
   font-family: "General Sans";
+  src: url("/fonts/GeneralSans-VariableItalic.woff2") format("woff2-variations");
+  src: url("/fonts/GeneralSans-VariableItalic.woff2") format("woff2") tech("variations");
+  font-weight: 500 700;
+  font-display: swap;
   font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/fonts/GeneralSans-MediumItalic.woff") format("woff"),
-    url("/fonts/GeneralSans-MediumItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "General Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/fonts/GeneralSans-Semibold.woff") format("woff"),
-    url("/fonts/GeneralSans-Semibold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "General Sans";
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/fonts/GeneralSans-SemiboldItalic.woff") format("woff"),
-    url("/fonts/GeneralSans-SemiboldItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "General Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/GeneralSans-Bold.woff") format("woff"),
-    url("/fonts/GeneralSans-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "General Sans";
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/GeneralSans-BoldItalic.woff") format("woff"),
-    url("/fonts/GeneralSans-BoldItalic.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400;
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2-variations");
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2") tech("variations");
+  font-weight: 400 800;
   font-display: swap;
-  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-style: normal;
 }
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 600;
+  src: url("/fonts/JetBrainsMono-VariableItalic.woff2") format("woff2-variations");
+  src: url("/fonts/JetBrainsMono-VariableItalic.woff2") format("woff2") tech("variations");
+  font-weight: 400 800;
   font-display: swap;
-  src: url("/fonts/JetBrainsMono-SemiBold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
   font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/fonts/JetBrainsMono-SemiBoldItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/JetBrainsMono-BoldItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("/fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: italic;
-  font-weight: 800;
-  font-display: swap;
-  src: url("/fonts/JetBrainsMono-ExtraBoldItalic.woff2") format("woff2");
-}
-
-
-@font-face {
-  font-family: "Redaction";
-  src: url("/fonts/Redaction_20-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  display: swap;
-}
-
-@font-face {
-  font-family: "Redaction";
-  src: url("/fonts/Redaction_20-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  display: swap;
-}
-
-@font-face {
-  font-family: "Redaction";
-  src: url("/fonts/Redaction_20-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  display: swap;
 }

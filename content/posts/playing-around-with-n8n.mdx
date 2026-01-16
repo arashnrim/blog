@@ -50,21 +50,20 @@ Here's a rough shakedown of what a workflow might do:
 4. Combine both the generated long-form message and one-line title in a notification, and display it.
 
 <figure>
-  <figure>
+  <div class="gallery">
     <img
-      src="/images/playing-around-with-n8n/001.png"
-      alt="A workflow that goes: Current Date → System Prompt → Run 'Anthropic API (Transient)' → Add 'Shortcut Response' to 'Response'"
-    />
-    <figcaption>
+        src="/images/playing-around-with-n8n/001.png"
+        alt="A workflow that goes: Current Date → System Prompt → Run 'Anthropic API (Transient)' → Add 'Shortcut Response' to 'Response'"
+      />
+    <img
+        src="/images/playing-around-with-n8n/002.png"
+        alt="A continuation of the workflow: System Prompt → Run 'Anthropic API (Transient)' → Add 'Shortcut Response' to 'Title' → Display Notification"
+      />
+  </div>
+
+  <figcaption>
       One of my Shortcuts workflows that runs at 5:00 a.m.
     </figcaption>
-  </figure>
-  <figure>
-    <img
-      src="/images/playing-around-with-n8n/002.png"
-      alt="A continuation of the workflow: System Prompt → Run 'Anthropic API (Transient)' → Add 'Shortcut Response' to 'Title' → Display Notification"
-    />
-  </figure>
 </figure>
 
 I never really had any problem with these workflows because they do work, but I found having to edit or make changes to them pretty clunky. The main reason why I'm using a Shortcut to make these calls to the APIs instead of using the respective apps is because (a) I don't really want there to be a chat history just generating motivational messages, and (b) I want this to run in the background, then only show me the notification.

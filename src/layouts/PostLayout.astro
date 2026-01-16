@@ -53,6 +53,17 @@ const { post } = Astro.props;
       max-width: 920px;
     }
 
+    figure figure {
+      margin: 0 !important;
+    }
+
+    figure .gallery {
+      display: flex;
+      gap: 1em;
+      overflow-x: scroll;
+      align-items: end;
+    }
+
     iframe {
       border: 3px solid #1f1f1f;
       border-radius: var(--radius);
@@ -67,11 +78,6 @@ const { post } = Astro.props;
       border-radius: 0.5em;
     }
 
-    figure > figure {
-      height: 100%;
-      margin: 0;
-    }
-
     figure figcaption > * {
       font-size: 1em;
       margin: 0.5em 0 0 0;
@@ -81,31 +87,8 @@ const { post } = Astro.props;
       display: flex;
       gap: 2em;
       overflow-x: scroll;
-      align-items: center;
+      align-items: end;
     }
-
-    code,
-    pre {
-      /* font-size: calc(var(--body) * 0.9); */
-    }
-
-    /* code:not(pre code) {
-      padding: 0.1em 0.5em;
-      background-color: #1f1f1f;
-      font-size: calc(var(--body) * 0.9);
-      border-radius: 0.5em;
-    } */
-
-    /* pre {
-      padding: 1em;
-      border: 3px solid #1f1f1f;
-      border-radius: var(--radius);
-      max-width: 920px;
-    } */
-
-    /* pre * {
-      font-size: calc(var(--body) * 0.9);
-    } */
 
     blockquote {
       margin-left: 0;

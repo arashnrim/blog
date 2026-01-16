@@ -1,7 +1,7 @@
 <footer class="container">
   <div id="footer__left">
     <code
-      ><code style="display: inline; color: cyan">~/blog-v2</code> on
+      ><code style="display: inline; color: cyan">~/website-v4</code> on
       <code style="display: inline; color: fuchsia">main</code></code
     >
     <code
@@ -18,7 +18,11 @@
       >?</code
     >
   </div>
-  <div id="footer__right"></div>
+  <!-- <div id="footer__right">
+    <a href="https://blog.arash.codes">Blog</a>
+    <a href="https://garden.arash.codes">Digital garden</a>
+    <a href="https://sandboxed.software">Sandboxed Software</a>
+  </div> -->
 </footer>
 
 <style>
@@ -26,17 +30,18 @@
     border-top: 2px solid #1f1f1f;
     margin-top: calc(var(--section-padding) / 2);
     display: flex;
+    gap: 2em;
+    flex-direction: column;
   }
 
   #footer__left {
     display: flex;
     flex-direction: column;
-    font-size: calc(var(--body) - 0.25em);
     flex: 1;
   }
 
   #footer__left * {
-    font-family: "JetBrains Mono", "Courier New", Courier, monospace !important;
+    font-family: var(--mono);
   }
 
   #footer__right {
@@ -47,12 +52,13 @@
 
   #footer__right a {
     width: fit-content;
-    font-size: calc(var(--body) - 0.25em);
+    font-size: var(--body);
   }
 
   @media only screen and (min-width: 1024px) {
     footer {
       margin-top: calc(var(--section-padding) / 3);
+      flex-direction: row;
     }
   }
 </style>
