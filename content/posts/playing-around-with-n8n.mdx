@@ -61,9 +61,7 @@ Here's a rough shakedown of what a workflow might do:
       />
   </div>
 
-  <figcaption>
-      One of my Shortcuts workflows that runs at 5:00 a.m.
-    </figcaption>
+  <figcaption>One of my Shortcuts workflows that runs at 5:00 a.m.</figcaption>
 </figure>
 
 I never really had any problem with these workflows because they do work, but I found having to edit or make changes to them pretty clunky. The main reason why I'm using a Shortcut to make these calls to the APIs instead of using the respective apps is because (a) I don't really want there to be a chat history just generating motivational messages, and (b) I want this to run in the background, then only show me the notification.
@@ -82,9 +80,7 @@ To start with n8n, I went ahead and created a new workflow. I plopped in the Web
     src="/images/playing-around-with-n8n/003.png"
     alt="A workflow that goes: Webhook → Respond to Webhook"
   />
-  <figcaption>
-    Experimenting with n8n, where I tried playing with webhooks.
-  </figcaption>
+  <figcaption>Experimenting with n8n, where I tried playing with webhooks.</figcaption>
 </figure>
 
 Back within Shortcuts, I just needed to use the "Get Contents of URL" task, point it to the webhook URL, then pair the output with a "Get Dictionary from Input" task. I can then parse the JSON and use it appropriately to display the notification on my phone.
@@ -108,9 +104,7 @@ I threw in a node to message an Anthropic model (I chose Claude Haiku) with a ba
     src="/images/playing-around-with-n8n/005.png"
     alt="A workflow that goes: Webhook → Message a model → Respond to Webhook"
   />
-  <figcaption>
-    Adding an LLM into the workflow is as simple as a dropping in a node.
-  </figcaption>
+  <figcaption>Adding an LLM into the workflow is as simple as a dropping in a node.</figcaption>
 </figure>
 
 And here it is in action:
@@ -138,10 +132,7 @@ I had a small misunderstanding with n8n, in that I initially thought that you ha
     src="/images/playing-around-with-n8n/007.png"
     alt="A workflow that shows two branches of generating a message then returning the message the last node."
   />
-  <figcaption>
-    I was confused for a bit — how was I going to combine these two LLM
-    providers together if their response schema are different?
-  </figcaption>
+  <figcaption>I was confused for a bit — how was I going to combine these two LLM providers together if their response schema are different?</figcaption>
 </figure>
 
 **Not really.** n8n provides this "Basic LLM Chain" that adequately abstracts everything for us. We just need to supply it the right model to use and any tools (in this case, no tools were needed since this is a pretty simple scenario). I think this is a pretty neat solution to an otherwise unnecessarily convoluted problem!
@@ -153,9 +144,7 @@ So, in the end, here's a look at what the workflow looks like for just one scena
     src="/images/playing-around-with-n8n/008.png"
     alt="A workflow that goes: Get contents of 'WEBHOOK' → Get dictionary from 'Contents of URL' → Display Notification"
   />
-  <figcaption>
-    Everything put together in the graph looks so satisfying.
-  </figcaption>
+  <figcaption>Everything put together in the graph looks so satisfying.</figcaption>
 </figure>
 
 I figured out the Merge node just by looking at a lot of documentation and working backwards at how other people have done it. It's a helpful way to combine (...merge) two or more inputs into one, and that's perfect for us, who need both generated texts to return to Shortcuts.
@@ -167,9 +156,7 @@ Back at Shortcuts, I can then cut away most of the process and just condense it 
     src="/images/playing-around-with-n8n/009.jpg"
     alt="A workflow that shows three branches of generating a message then returning the message the last node."
   />
-  <figcaption>
-    Everything condensed into just three nodes in Shortcuts.
-  </figcaption>
+  <figcaption>Everything condensed into just three nodes in Shortcuts.</figcaption>
 </figure>
 
 That's a lot easier on the eyes if you ask me.

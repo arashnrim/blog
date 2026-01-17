@@ -10,12 +10,11 @@ interface Props {
 ---
 
 <div class="post" id={post.id} transition:name={`${post.id}__card`}>
-  <UnstyledAnchor href={`/posts/${post.id}`} />
-
   <h2 transition:name={`${post.id}__title`}>
     {post.data.title}
   </h2>
   <p>{post.data.description}</p>
+  <UnstyledAnchor href={`/posts/${post.id}`} />
 
   <PostMetadata entry={post} />
 </div>

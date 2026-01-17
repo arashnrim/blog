@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import type { CollectionEntry } from "astro:content";
 import PostMetadata from "@components/PostMetadata.astro";
+import PostStyles from "@components/PostStyles.astro";
 
 interface Props {
   post: CollectionEntry<"posts">;
@@ -25,120 +26,6 @@ const { post } = Astro.props;
   <main class="container" id="post-content" data-pagefind-body>
     <slot />
   </main>
+
+  <PostStyles />
 </BaseLayout>
-
-<style is:inline>
-  #post-content {
-    * {
-      line-height: 1.6;
-    }
-
-    > * {
-      max-width: 920px;
-    }
-
-    hr {
-      margin-left: 0;
-      border: 2px solid #2a2a2a;
-      border-radius: var(--radius);
-    }
-
-    figure {
-      margin: 1em 0;
-    }
-
-    figure:not(.expressive-code figure) {
-      border: 3px solid #1f1f1f;
-      border-radius: var(--radius);
-      padding: 1em;
-      margin: 1em 0;
-    }
-
-    figure figure {
-      margin: 0 !important;
-    }
-
-    figure .gallery {
-      display: flex;
-      gap: 1em;
-      overflow-x: scroll;
-      align-items: end;
-    }
-
-    iframe {
-      border: 3px solid #1f1f1f;
-      border-radius: var(--radius);
-      width: 100%;
-      aspect-ratio: 16 / 9;
-    }
-
-    figure img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      border-radius: 0.5em;
-    }
-
-    figure figcaption > * {
-      font-size: 1em;
-      margin: 0.5em 0 0 0;
-    }
-
-    figure:has(figure) {
-      display: flex;
-      gap: 2em;
-      overflow-x: scroll;
-      align-items: end;
-    }
-
-    blockquote {
-      margin-left: 0;
-      padding: 0.1em 2em;
-      border-left: 5px solid #1f1f1f;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-bottom: 0;
-    }
-
-    h1 {
-      font-size: var(--subtitle);
-    }
-
-    h2 {
-      font-size: calc(var(--subtitle) * 0.9);
-    }
-
-    h3 {
-      font-size: calc(var(--subtitle) * 0.8);
-    }
-
-    h4 {
-      font-size: calc(var(--subtitle) * 0.7);
-    }
-
-    h5,
-    h6 {
-      font-size: var(--body);
-    }
-
-    .prompt {
-      margin: 0 -2em;
-    }
-
-    .prompt > * {
-      margin: 0;
-    }
-  }
-
-  .post__metadata > div {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-  }
-</style>

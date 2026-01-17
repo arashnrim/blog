@@ -1,0 +1,99 @@
+<style is:inline>
+  #post-content {
+    * {
+      line-height: 1.6;
+    }
+
+    > * {
+      max-width: 920px;
+    }
+
+    hr {
+      margin-left: 0;
+      border: 2px solid #2a2a2a;
+      border-radius: var(--radius);
+    }
+
+    figure {
+      margin: 1em 0;
+    }
+
+    figure:not(.expressive-code figure) {
+      border: 3px solid #1f1f1f;
+      border-radius: var(--radius);
+      padding: 1em;
+      overflow-x: scroll;
+    }
+
+    figure:has(figure) {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      align-items: end;
+    }
+
+    @media screen and (min-width: 768px) {
+      figure:has(figure) {
+        flex-direction: row;
+      }
+    }
+
+    figure .gallery {
+      display: flex;
+      gap: 1em;
+      overflow-x: scroll;
+      align-items: end;
+    }
+
+    figure figure {
+      margin: 0 !important;
+    }
+
+    figure img {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 0.5em;
+    }
+
+    figure figcaption {
+      margin-top: 0.5em;
+    }
+
+    figure figcaption * {
+      margin: 0;
+    }
+
+    iframe {
+      border: 3px solid #1f1f1f;
+      border-radius: var(--radius);
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    blockquote {
+      margin-left: 0;
+      padding: 0.1em 2em;
+      border: 3px solid #2a2a2a;
+      border-left: 5px solid #2a2a2a;
+      background-color: #1f1f1f;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    h1 + *,
+    h2 + *,
+    h3 + *,
+    h4 + *,
+    h5 + *,
+    h6 + * {
+      margin-top: 0;
+    }
+
+    .prompt {
+      margin: 0 -2em;
+    }
+
+    .prompt > * {
+      margin: 0;
+    }
+  }
+</style>
