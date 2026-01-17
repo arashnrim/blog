@@ -26,13 +26,17 @@ const { title, post } = Astro.props;
       title="function()"
       href={new URL("rss.xml", Astro.site)}
     />
+
     {post ? <PostSEO post={post} /> : <DefaultSEO title={title} />}
+
     <script
       defer
       src="https://analytics.arash.codes/script.js"
       data-website-id="0160d1ab-d18b-4fce-b392-177af5c32248"></script>
+
     <ClientRouter />
   </head>
+
   <body>
     <Header />
 

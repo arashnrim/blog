@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import PostMetadata from "@components/PostMetadata.astro";
+import UnstyledAnchor from "./UnstyledAnchor.astro";
 const { post } = Astro.props;
 
 interface Props {
@@ -8,29 +9,35 @@ interface Props {
 }
 ---
 
-<div class="post" id={post.id}>
-  <a href={`/posts/${post.id}`}>
-    <h2 transition:name={`${post.id}__title`}>{post.data.title}</h2>
-    <p>{post.data.description}</p>
-  </a>
+<div class="post" id={post.id} transition:name={`${post.id}__card`}>
+  <UnstyledAnchor href={`/posts/${post.id}`} />
+
+  <h2 transition:name={`${post.id}__title`}>
+    {post.data.title}
+  </h2>
+  <p>{post.data.description}</p>
 
   <PostMetadata entry={post} />
 </div>
 
 <style>
   a {
-    all: unset;
-    display: contents;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .post {
+    position: relative;
     height: 100%;
     box-sizing: border-box;
     padding: 2em;
     border: 3px solid #1f1f1f;
-    transition: border 0.2s;
     border-radius: var(--radius);
     transition:
+      border 0.2s,
       background-color 0.2s,
       border-color 0.2s;
     cursor: pointer;

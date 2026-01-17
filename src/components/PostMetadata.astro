@@ -13,13 +13,13 @@ const { entry } = Astro.props;
 const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
 ---
 
-<div class="post__metadata">
+<div transition:name={`${entry.id}__metadata`} class="post__metadata">
   <div>
     <Icon name="solar:calendar-bold-duotone" />
     <span>
       {
         new Date(
-          entry.data.updatedDate || entry.data.publishedDate
+          entry.data.updatedDate || entry.data.publishedDate,
         ).toLocaleDateString("en-SG", {
           day: "numeric",
           month: "long",
@@ -30,7 +30,7 @@ const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
         entry.data.updatedDate && (
           <span class="post__original-date">
             {`(first published ${new Date(
-              entry.data.publishedDate
+              entry.data.publishedDate,
             ).toLocaleDateString("en-SG", {
               day: "numeric",
               month: "long",
