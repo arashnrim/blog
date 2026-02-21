@@ -19,7 +19,7 @@ type Topic = CollectionEntry<"topics">;
 const { topic } = Astro.props;
 let posts = await getCollection("posts");
 posts = posts.filter((post) =>
-  post.data.topics?.map((topicRef) => topicRef.id).includes(topic.id)
+  post.data.topics?.map((topicRef) => topicRef.id).includes(topic.id),
 );
 posts = posts.sort((a, b) => {
   const aDate = a.data.updatedDate || a.data.publishedDate;
@@ -27,6 +27,10 @@ posts = posts.sort((a, b) => {
   return (bDate?.valueOf() ?? 0) - (aDate?.valueOf() ?? 0);
 });
 ---
+
+<head>
+  <meta title="robots" content="noindex" />
+</head>
 
 <BaseLayout>
   <Hero>
