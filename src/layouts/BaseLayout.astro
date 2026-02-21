@@ -12,6 +12,8 @@ interface Props {
   post?: CollectionEntry<"posts">;
 }
 const { title, post } = Astro.props;
+
+const isTopicsPage = Astro.url.pathname.startsWith("/topics/");
 ---
 
 <html lang="en">
@@ -26,6 +28,8 @@ const { title, post } = Astro.props;
       title="function()"
       href={new URL("rss.xml", Astro.site)}
     />
+
+    {isTopicsPage && <meta name="robots" content="noindex" />}
 
     {post ? <PostSEO post={post} /> : <DefaultSEO title={title} />}
 

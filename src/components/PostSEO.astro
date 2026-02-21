@@ -14,6 +14,19 @@ const topicNames =
     const topicData = topics.find((t) => t.id === topic.id);
     return topicData ? topicData.data.name : "";
   }) || [];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: data.title,
+  description: data.description,
+  datePublished: data.publishedDate.toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Arash Nur Iman",
+    url: "https://arash.codes",
+  },
+};
 ---
 
 <title>{`${data.title} | function()`}</title>
@@ -56,3 +69,10 @@ const topicNames =
   )
 }
 <meta name="twitter:title" content={data.title} />
+
+<!-- JSON-LD -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+  is:inline
+/>
