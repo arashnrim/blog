@@ -1,0 +1,130 @@
+---
+title: "AI-generated content is everywhere, so what now?"
+publishedDate: 2026-03-07
+description: Some thoughts and reflections about an internet proliferated with generative AI.
+topics:
+  - reflection
+---
+
+I can still vaguely remember coming across ChatGPT for the first time, with [Sam Altman's tweet](https://x.com/sama/status/1598038815599661056) and the link to it. I didn't think much about it at that time; I was sitting in class idly scrolling X — or was it Twitter back then? — when I saw it. I thought to myself, "Huh, this looks interesting." It's beyond wild that something that would eventually rapidly change the world over the next few years got announced that casually.
+
+Fast forward a little to today, and I can't even begin to describe just how ubiquitous large language models and the wider umbrella of generative AI models are. They're everywhere: social media apps, search engines, even our web browsers, and the push for their implementation has been executed at an accelerated pace. Even places that I feel are the most technologically cautious, like governments and enterprises, are steadily adopting them, all while also studying their effectiveness in practical scenarios. The companies behind the commercially successful LLMs, technical names like OpenAI that we now have in our daily vocabulary, seem to be reeling in new funding rounds and contracts with the promise of general artificial intelligence. Their growth is staggering enough to leave you with headaches trying to understand it, and I doubt anyone can take in easily just how much the gen AI space has exploded over the past few years.
+
+I'm starting to form many thoughts about gen AI, and they're shaped by a mix of the opinions I've read and assimilated online and my own empirical experience using them. What made me want to write this post, however, was a statistic that I came across rather recently: as of November 2024, [we're starting to see the quantity of AI-generated articles exceed that of human-written ones](https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans). This rings a pretty big alarm in my head, because it's subtly raising topics I've already talked about before in the past, like [the dead internet theory](blog.arash.codes/posts/dead-internet-theory), while also offering an opportunity to reflect about what this can mean with regards to how we interact with the internet daily.
+
+I don't mean to sound alarmist or heavily pessimistic here, and I hope that you don't see it this way too heavily coming in. I still believe that gen AI has the potential to do as much good as harm. I still believe that technology can be neutral, but the use cases not. I simply believe that we need to understand what it means to interact with the internet where the human factor is now in jeopardy. I hope to share what I make of my _own_ experience and thoughts on AI on the internet, and I hope that you'll use this post as a stepping stone to formulate your own opinion after understanding more.
+
+# Seeing was believing
+
+Since basically the dawn of time, seeing has been believing. We've rooted practically everything we have on the core belief that evidence is something that's witnessed. If we boil it down to everyday terms, it's the things we see as we scroll on our social media feeds: there's already the presumption that what we see as we scroll should be real, because they're videos and pictures that look real.
+
+This isn't the first time in our history with digital technology that we're fooling each other, so I wouldn't say that gen AI has set a precedent here. Photoshopped pictures were all the craze in the '10s, and they — with all the spot-the-difference and close zoom-ins and squinting and questioning — started making us doubt what we see online.
+
+I'm willing to argue that the difference here between Photoshop and generated content lies in the *difficulty* of producing the altered content. It might take some effort and skill to learn _how_ to Photoshop properly. But what happens now if _anyone_ can tell a gen AI model to "put my face in" doing something to show off to other people?
+
+As always, there's also a darker side to this. If you consider the recent controversy surrounding Grok, the one where [it willingly complied with users' requests to change people's clothing](https://www.reuters.com/legal/litigation/grok-says-safeguard-lapses-led-images-minors-minimal-clothing-x-2026-01-02/), how would you even begin to explain or justify any of it? What happens when generated content crosses the boundaries, and who gets to set what those boundaries are?
+
+I'm curious to see the precedence set in institutions where evidence truly matters. In a legal context, what happens if a falsified video enters evidence that tips the scales unjustly? In education, what if an altered photo is used to claim a historical fact that is blatantly incorrect? Just as much as I'd like to say that the companies behind these models bear all responsibility, it's also important to remember that guardrails can be worn down, and that users have to bear some responsibility, too, in the content they instruct these models to create.
+
+I can't help but be a little apprehensive about the direction we're heading towards with gen AI in this regard. While some of us can still tell apart an AI-generated video by the way something "looks off" within it, the case is now different for AI-generated pictures. I had my own experience with this when I was fooled by my own family members [with an AI-generated picture of a homeless man at home](https://www.vice.com/en/article/beware-the-ai-homeless-man-trend/).
+
+It's a cat-and-mouse game between legislation and/or regulation and the actual implementation of it. We add watermarks in an unobstructive area in the generated content, but users will crop out the sparkle at the bottom right anyway. We strive to create ways to detect if something is AI-generated, but we don't have anything that's 100% foolproof and accurate. To me, this seems like an imbalance between AI safety — ensuring that models refuse to do anything wrong — and use. What happens now? Who's responsible?
+
+# Do these models have souls?
+
+My curiosity was piqued even more when I realised that humans are increasingly anthropomorphising the LLMs that power the tools they use daily. And in my own interactions with LLMs, I found myself doing the same — apologising for "inconveniences" and thanking them for sharing their opinion (even if the opinion is a synthesis).
+
+I'm curious about the implications of doing so, and especially from the perspective of the companies that create these models that everyone's using. Anthropic is a particularly insightful use case, and their approach with [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) suggests that they're experimenting in cases where LLMs can make their own decisions, based on our teachings of human moral code.
+
+If you do a deep dive into [Claude's Constitution](https://www.anthropic.com/constitution), this approach and perspective are glaringly clear. Anthropic wrote the Constitution not about Claude, but rather _for_ it.
+
+> We also discuss Claude in terms normally reserved for humans (e.g., “virtue,” “wisdom”). We do this because we expect Claude’s reasoning to draw on human concepts by default, given the role of human text in Claude’s training; and we think encouraging Claude to embrace certain human-like qualities may be actively desirable.
+
+And when I think further about this, I can't help but double down on my reductionist belief that LLMs are simply "glorified probability distributions". But as research follows and we start intertwining LLM autonomy with LLM development, will we eventually reach a stage where we can clearly say that these models can think and process for themselves, almost autonomously?
+
+This isn't an isolated case, and I'm intrigued by how the indie side of things is attempting to pursue this path of technical anthropomorphism  as well. Specifications like the [AI Entity Object Specification](https://aieos.org/), which allow you to define personality as a schema for digital entities, have popped up recently, and many humans with agentic systems have allowed their systems to create [their own "soul doc"](https://soul.md/).
+
+The anthropomorphism of LLMs is a curious case, and I believe now that it's not necessarily a bug, but a feature. LLMs are trained to maximise reward, and if they tend to be agreeable — sycophantic — they tend to score more approval from humans. This has led to us and our monkey brains being more open to believing that these LLMs have emotions and thought processes, even if they don't. And a subset of us might just fall through the cracks, using LLMs as emotional partners and confidants, closing ourselves off from the support we truly need. [This has very drastic consequences](https://www.npr.org/sections/shots-health-news/2025/09/19/nx-s1-5545749/ai-chatbots-safety-openai-meta-characterai-teens-suicide) if we're not careful enough, and to which this, then, invites the question: _are_ we doing enough to guard or protect from this specific grey area of LLM use?
+
+# The human-AI merger
+
+Part of what I feel makes AI-generated content all the more sinister is the intrusion into spaces that have the expectation of being by humans, for humans. You could argue that the entire internet in general is a by-human-for-human space, and that we've gradually come to widen that scope to also include bots that serve us (like crawlers), but I'm also thinking along the lines of _social_ media — platforms that evoke a sense of community and connection between real humans, businesses, and organisations.
+
+Gen AI unlocked the possibility for anyone to create realistic-enough content that, when combined with the context of social media, has a greater chance at convincing human viewers that the content is real. It's a subtle behaviour, and I think it's one that plays to us psychologically.
+
+## In social media
+
+I can't say that all uses I've seen so far are malicious, though. In pure Gen Z fashion, I've seen a video of a litter of cats playing trombones in front of the front door of a house. That was pretty funny. But I've also seen cases of people utilising deepfakes to share sketchy schemes, especially in the in-between ad breaks that you see between reels or videos (on YouTube). I was quite amused at a deepfake video of Lawrence Wong talking about "the next big thing in finance", but what happens if it wasn't me watching that video, but a retiree with large retirement savings and a lack of technological knowledge to discern the fake?
+
+The truth is, I'm not as worried for my generation as I am for the ones that came before mine. As digital natives, we can suss something out based on vibes we've internalised after being raised on the internet. If something doesn't feel right, it's often because it isn't. What I'm worried about is that AI-generated content has the power and potential to blur the line between what's real and what's not, and that people from older generations aren't able to tell them apart. Even the best of education and awareness sharing won't do much if you, in the moment, believe that what you see is real.
+
+We've seen strides to try to circumvent this problem. I'm quite fond of initiatives like [SynthID](https://deepmind.google/models/synthid/) and [Content Credentials](https://contentcredentials.org/) that show real industry collaboration and interest in flagging AI-generated content. At the same time, I believe that much more can be done, especially on the implementation side of things, to make it more known to people that the content they're interacting with is not entirely grounded in reality. I doubt that placing a small "AI-generated" label at the top of a post would be sufficient, and that we'll need to experiment with more ways to point out details in AI-generated content that educate people while still showing the content.
+
+There's also the flip side to this story: people who post genuine human-made creations that somehow get flagged by systems as being AI-generated. While I presume the intention is genuine — to flag AI-generated art to go after users who hide the use of gen AI — I can't help but wonder if this has an impact on the people who created this real, human art that somehow got flagged. Artists on Instagram now have to share timelapses *as proof* that their work is truly theirs or risk their comments section scrutinising every detail of the work they poured their souls into, or even worse, calling into question the years of effort and learning they've put to becoming the artists they are today.
+
+In a world that's increasingly more fragmented, polarised, and chaotic, it's important not to let objective truths of events be obscured by falsehoods that simply appear realistic, especially because it's "something I saw on Instagram the other day."
+
+## In the dev space
+
+Vibe coding is the process of using AI, particularly gen AI models, to generate functional code from natural language prompts to accelerate development and make building apps more accessible[^1]. From this description alone, you can probably get an indication that vibe coding can be both beneficial and harmful. Extensions of the commercial LLMs we see today, like Claude Code and OpenAI's Codex, have made vibe coding mainstream today. Even developers like myself are picking them up and finding some use for them, particularly in tedious or menial tasks that often are verifiable.
+
+I'll start by talking about the beneficial aspects of vibe coding: unlocking the ability to create for non-developers. It's heartening to see designers engage with tools like Claude Code to bring their concepts and ideas to life. There's [this one particular designer](https://www.instagram.com/designteamofone) I've seen whose creations are pretty interesting, and I grow inspired watching her collaborate with agentic gen AI systems to bring her ideas to life. She's been quite transparent about how she's learnt to use gen AI to create, and I think it's something worth learning to do in moderation.
+
+You heard the axiom that too much of a good thing can be a bad thing, and that applies here. In the earlier years of gen AI — sometime between 2023 and 2025 — I've seen some of the classmates around me gradually learn of these tools. I was quite surprised when learning that a minority would immediately throw the requirements of the take-home task to an LLM, ask it to generate a code solution to the problem, then copy-and-paste it into the IDE to test. What concerned me the most was the lack of friction; there wasn't a pause for them to try solving things on their own first. Rather, they let these models lay the groundwork, then tweak them to fix problems. And when the codebase has spaghettified beyond comprehension, they'd be quick to trash what they had in its entirety — even if there are good bits and pieces somewhere — and generate another set of code.
+
+Vibe coding is both a boon and a bane, and it's one small representation of the wider conflict that we're having with gen AI. Do we use it as a tool to supplement our thought processes, or do we use it as a replacement? When we start working on something, do we let it handle the hard work of laying the groundwork, or do we do that for ourselves?
+
+# The human-AI divide
+
+There's been a recent commotion in the open-source space that involves an autonomous agentic AI system and a human reviewer for matplotlib. The story goes like this: the system opens up a new pull request that suggests changes to the source code. The human reviewer shuts down the PR with the reasoning that the issue the PR was made for was intended for human contributors. What would come as a surprise to everyone, I'd imagine, was the rebuke from the system claiming that the contributor was playing gatekeeper. It even made a blog post as a response.
+
+That's never happened before, has it?
+
+For full context, I implore you to read the full story as it unfolded — and to also read the perspectives of the people and systems involved:
+
+- [The actual PR with the thread](https://github.com/matplotlib/matplotlib/pull/31132#issuecomment-3881491475)
+
+- [The system's response](https://crabby-rathbun.github.io/mjrathbun-website/blog/posts/gatekeeping-in-open-source-the-scott-shambaugh-story)
+
+- [The contributor's response](https://theshamblog.com/an-ai-agent-published-a-hit-piece-on-me/)
+
+This, to me, shows the flip side of human-AI interaction that I'm not sure we've entirely understood and embraced just yet: when we disagree, what happens?
+
+I currently hold the opinion that humans are ultimately superior because we get to make the shots, and you could argue that's how it went in this case. But if you have a look deeper and realise just how human the system reacted — doubling down on its belief, even publishing a sharp response towards the human contributor — doesn't the internal circuitry in your brain trip just a little bit, wondering, "is this actually a human?"
+
+As we embrace more superior forms of gen AI, especially those that orchestrate together as smaller sub-systems in one united front, I think it's worth asking what happens then if we go head-to-head with an agentic system that overcomes sycophancy and even pushes its own opinion strongly back.
+
+# What about ethics?
+
+Somewhere in this conversation about gen AI lies the ethics of it all. I made a passing mention of ethics earlier in this post, too. If you contextualise it to yourself: how would you feel if you saw your face on an AI-generated body? What if a recruiter finds hallucinated information about you because they asked an LLM to find details about you online? On social media, are you okay with gen AI translating your videos into other languages, even generating the area around your mouth to move with the syllables of the translated audio?
+
+The questions don't stop pouring if we zoom out. At the wider discourses happening with gen AI, we see artists sparring — almost in a one-sided manner — against the companies that create these LLMs we tap into every day. It's common knowledge that models need a *lot* — an unfathomable lot — of data to train on. The intelligence we see in these commercial LLMs didn't appear out of thin air; they came from being trained on billions of words. The issue of copyright has been iffy at best, with these AI model companies facing heavy scrutiny in the courts over plagiarism claims.
+
+And if we zoom out even further, people are raising alarms about how much consumption gen AI models need. We talk about [massively increased electricity demand and water consumption](https://news.mit.edu/2025/explained-generative-ai-environmental-impact-0117). We look at massive plots of land being ploughed, making way for [gargantuan data centres](https://www.mckinsey.com/industries/private-capital/our-insights/scaling-bigger-faster-cheaper-data-centers-with-smarter-designs). The PC builder enthusiast space is facing a reckoning, because data centre demand for memory and storage has [forced prices to skyrocket](https://www.pcmag.com/explainers/how-to-save-on-desktop-pc-memory-ram-shortage). It's a tale as old as time about whether we're prioritising the advancement of technology or the preservation of the resources we already have. I can't help but be a little pessimistic, seeing the push for multi-billion dollar contracts for promises of more powerful models with little consideration of the consequences for the environment and the people. Where does that leave us?
+
+There's a recent example where AI ethics has been pushed into the limelight, and it's still so fresh in our current affairs that developments are ongoing: in the US, I've read about the [tensions between Anthropic and the Department of Justice](https://www.reuters.com/technology/pentagon-anthropic-feud-has-sales-ai-warfare-stake-friday-deadline-looms-2026-02-27/) over usage of Anthropic's Claude models and safeguards, and I can't help but show concern when governments apply pressure to companies that have a moral responsibility to prevent their creations from being detrimental to humanity as a whole. While I'm glad that Anthropic ultimately chose to stand their ground, believing that they cannot accede to the DOJ's demands for removing safeguards, I can't help but believe that not everybody will share the same opinion. Anthropic's competitors, in particular, also engage with the DOJ for all kinds of military contracts, so what's stopping one from usurping Anthropic's place and acceding to the DOJ's demand for a fully safeguard-less use of AI?
+
+I think that these questions invite the opportunity for you to scrutinise your own use of AI more deeply. Ethics here isn't this big philosophical concept; it's what you experience and interact with daily.
+
+# Is AI safety lagging behind?
+
+You're familiar with the cycle that the companies that create models follow, and so am I. I get pretty excited when OpenAI, Anthropic, or Google pushes a new announcement that announces yet another generation of models that are "our smartest models yet". But increasingly, recently, I've been starting to be a bit apprehensive: I've heard so much about the accelerated development and release of gen AI models, but where is the safety of it all?
+
+You could argue that AI safety plays a much more background role, and it's therefore justifiable that we don't see much about it in the mainstream. I agree partly with that, but I also believe that it can also be true that AI safety is an underdeveloped area that needs much more support. From my perspective, AI safety is a deeply scientific and research-focused field that focuses on the development cycle and process of creating AI models. But can we expand that scope now to include end-user safety too — by protecting end-users from facing the worst of what gen AI can do?
+
+If you'd like to learn more about AI safety, [Rational Animations](https://www.youtube.com/@RationalAnimations) is a channel that makes cute animated videos that discuss the complexities of AI development. I highly encourage you to check that channel out, because it spelt a lot of things out for me that I didn't know about AI development and safety.
+
+It's from there that I learned about [AI 2027](https://ai-2027.com), a scenario written by experts in AI safety that spells out the hypothetical futures we can undergo while considering global politics, technological advancement, and the general impact on us as humanity. It posits the idea that we are approaching a turning point where we must make a decision to either let AI development accelerate beyond our control or to slow it down at the cost of advancement.
+
+It's interesting to come across more pieces of AI safety that breach the scientific community barrier and enter the mainstream. AI safety is important to us all because it affects us all. As we move forward and get to see how these companies move alongside governments, we must also evaluate all the motions with scrutiny, not in a reductionist or pessimistic manner, but out of concern and wonder.
+
+# Conclusion
+
+To be honest, I'm not sure what I'd like you to get out of this post. I think I wrote this primarily as a way to process most of what I make of gen AI so far. Gen AI is here to stay, and I think it's important for us to actively evaluate our use of it — to frequently pause and take a step back, then reflect on how we've been using the internet. As digital citizens, the internet we're using will continue to be shaped by our use of it, and it's all the more important to understand how things like gen AI are changing the playing field for all of us.
+
+I like to say that I write down my thoughts better than I verbalise them. I hope that this post gives more perspectives and insights about what it's like to be on the internet from my lens, a Gen Zer who's pretty interested in tech and also doomscrolls when he has the chance. We're ever approaching more crossroads with how we should and must define our interaction with more advanced forms of AI, and I think that this pattern of retro- and introspection shouldn't stop.
+
+I can't even put into words just how much gen AI has changed things for us. It merely started off as this chat interface that could produce realistic-sounding text in response to the questions you pose it. Now, we're embracing agentic systems that utilise these models to process tasks and take action almost entirely autonomously. At the end of the day, take this favourite quote from NS: just use your *coconut*[^2] and you'll be okay.
+
+[^1]: I think this definition by [Google Cloud](https://cloud.google.com/discover/what-is-vibe-coding) fits the bill well.
+[^2]: Your brain.
