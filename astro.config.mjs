@@ -12,6 +12,7 @@ import expressiveCode from "astro-expressive-code";
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.arash.codes",
+  trailingSlash: "never",
   integrations: [
     expressiveCode({
       theme: ["github-dark-default"],
@@ -30,7 +31,14 @@ export default defineConfig({
       remarkPlugins: [remarkToc],
     }),
     icon(),
-    sitemap(),
+    sitemap({
+      serialize: (item) => {
+        return {
+          ...item,
+          url: item.url === "/" ? item.url : item.url.replace(/\/$/, ""),
+        };
+      },
+    }),
   ],
   adapter: vercel(),
 });
