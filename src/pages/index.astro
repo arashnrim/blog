@@ -27,29 +27,41 @@ posts = posts.sort((a, b) => {
 <BaseLayout>
   <Hero>
     <h1 id="hero__title" class="logo">function()</h1>
-    <span
-      >Arash's blog (→ digital garden soon!) to share experiences, thoughts, and
-      stories about tech as an individual and student.</span
-    >
+    <p id="hero__description">
+      <a href="https://arash.codes" rel="noopener noreferrer" target="_blank"
+        >Arash's</a
+      > blog: a space for the gathering of thoughts, experiences, and reflections
+      as an aspiring technologist, introspective human, and lifelong student.
+    </p>
   </Hero>
 
   <section id="preface" class="container">
     <p>
-      <b>Welcome to my corner of the internet!</b> I hope to use this as a place
-      for me to share what little I have with the world. Writing is a craft I want
-      to continue developing further, and I believe that there is no better way to
-      develop the skill than to write. I'm slowly finding my voice and how I approach
-      things as I go!
+      Writing has always made me feel better — to think through things and form
+      opinions, to vent, and to explore. It's something I want to remain close
+      to, so this blog is one of several ways I'm keeping this close to heart.
     </p>
+
     <p>
-      I'm also interested in the concept of <strong>digital gardens</strong>.
-      I'm still learning more about them now, and I'm hoping to implement my own
-      version once I have it down. Feel free to reach out if you're into these
-      kinds of things!
+      I'm open to writing about anything I'm curious about, and many ideas I've
+      written so far come from the spur of the moment. You might find <a
+        href="/topics/code">in-depth technical posts</a
+      > talking about something that interests me just as much as you could <a
+        href="/topics/reflection">ones reflecting</a
+      > on my place in the world. I hope both intrigue and engage!
+    </p>
+
+    <p>
+      Truly: thank you for stopping by, even if it's just for a bit. If there's
+      something you're curious about here, <a
+        href="https://arash.codes/#connect"
+        rel="noopener noreferrer"
+        target="_blank">feel free to reach out</a
+      > so we can have a chat about it!
     </p>
 
     <Prompt title="Two halves, one ecosystem" icon="ph:plant" kind="muted">
-      <p style="max-width: none; margin: 0">
+      <p style="margin: 0">
         I’m trying out something new to bring this and my <a
           href="https://garden.arash.codes">digital garden</a
         > together as <a
@@ -83,12 +95,12 @@ posts = posts.sort((a, b) => {
     margin: 0 0 0.25em 0;
   }
 
-  #preface {
-    padding-bottom: 0;
+  #hero__description {
+    margin: 0 !important;
   }
 
-  #preface > p {
-    max-width: 1260px;
+  #preface {
+    padding-bottom: 0;
   }
 
   #posts {

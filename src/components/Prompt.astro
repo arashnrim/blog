@@ -19,18 +19,7 @@ const icon = {
 <div class={`prompt ${kind}`}>
   <Icon name={customIcon || icon[kind]} />
 
-  {
-    title && (
-      <>
-        <span>{title}</span>
-        <br />
-      </>
-    )
-  }
-
-  <!-- <div class="prompt__content">
-    <slot />
-  </div> -->
+  {title && <p class="prompt__title">{title}</p>}
 
   <slot />
 </div>
@@ -51,10 +40,13 @@ const icon = {
     border-radius: var(--radius);
     position: relative;
     overflow: hidden;
+    max-width: fit-content;
   }
 
-  .prompt > span {
+  .prompt__title {
     font-weight: 700;
+    font-size: calc(var(--body) * 1.1);
+    margin: 0;
   }
 
   .info {
@@ -108,10 +100,3 @@ const icon = {
     }
   }
 </style>
-
-<!-- <style is:inline>
-  .prompt__content * {
-    font-size: var(--body);
-    max-width: none;
-  }
-</style> -->
