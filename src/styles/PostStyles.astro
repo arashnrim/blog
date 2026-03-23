@@ -1,7 +1,10 @@
+<!-- This is a hacky workaround to inject custom styling to @astrojs/mdx's rendition
+of MDX content. The styles are scoped to the #post-content element, which is the
+container for the MDX content in the PostLayout component. -->
 <style is:inline>
   #post-content {
     * {
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     > * {
@@ -9,9 +12,18 @@
     }
 
     hr {
+      border: none;
       margin-left: 0;
-      border: 2px solid #2a2a2a;
-      border-radius: var(--radius);
+      margin-right: 0;
+    }
+
+    hr::before {
+      content: "***";
+      font-family: var(--mono);
+      /* Value extracted from 50% transparency of white (#ffffff) over the background color (#0a0a0a) */
+      color: #8d8d8d;
+      display: block;
+      text-align: center;
     }
 
     figure {

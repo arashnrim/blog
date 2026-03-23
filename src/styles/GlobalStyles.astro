@@ -1,5 +1,5 @@
 <script>
-  import "../styles/fonts.css";
+  import "@styles/fonts.css";
 </script>
 
 <style is:global>
@@ -8,10 +8,9 @@
 
     --radius: 1em;
 
-    --subtitle: clamp(1.5rem, 5vw, 2.5rem);
-    --title: clamp(2rem, 5vw, 3rem);
-    --body: clamp(1rem, 5vw, 1.1rem);
-    --badge: clamp(0.75rem, 5vw, 1rem);
+    --body: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --subtitle: clamp(1.35rem, 1.2206rem + 0.575vw, 1.6663rem);
+    --title: clamp(1.944rem, 1.5281rem + 1.8486vw, 2.9607rem);
 
     --sans:
       "General Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -23,16 +22,13 @@
   @media screen and (min-width: 768px) {
     :root {
       --section-padding: 6em;
-
-      --subtitle: clamp(1.5rem, 5vw, 2.5rem);
-      --title: clamp(3rem, 5vw, 4rem);
-      --body: clamp(1.25rem, 5vw, 1.3rem);
     }
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 2em;
+    font-size: var(--body);
   }
 
   body {
@@ -41,8 +37,9 @@
   }
 
   * {
-    color: white;
+    color: #ffffff;
     font-family: var(--sans);
+    font-weight: 500;
   }
 
   *::selection {
@@ -59,20 +56,14 @@
   span,
   ol,
   ul {
-    font-size: var(--body);
     max-width: 920px;
     line-height: 1.5;
   }
 
-  b {
-    font-weight: 600;
-  }
-
   a {
     text-decoration: none;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     padding: 0 2.5px;
-    font-weight: bold;
     font-weight: 600;
   }
 
@@ -81,6 +72,7 @@
   code *,
   pre * {
     font-family: var(--mono);
+    font-size: calc(var(--body) * 0.725);
   }
 
   h1,
@@ -90,18 +82,6 @@
   h5,
   h6 {
     font-weight: 700;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(var(--min-range, -0.25rem)) rotate(var(--rotate, 0));
-    }
-    50% {
-      transform: translateY(var(--max-range, 0.25rem)) rotate(var(--rotate, 0));
-    }
-    100% {
-      transform: translateY(var(--min-range, -0.25rem)) rotate(var(--rotate, 0));
-    }
   }
 
   .logo {
@@ -121,8 +101,8 @@
   }
 
   .badge {
-    font: var(--badge);
     width: fit-content;
+    /* Deviates from the original #0a0a0a88 because badges are already used on backgrounds of the same color */
     background-color: #1f1f1f88;
     padding: 0.2em 0.5em;
     border-radius: 0.5em;
@@ -130,23 +110,8 @@
     user-select: none;
   }
 
-  .sprinkle {
-    position: absolute;
-    font-family: var(--mono);
-    opacity: 0.15;
-    user-select: none;
-    animation: float 3s ease-out infinite;
-    z-index: -1;
-  }
-
   [data-icon] {
     font-size: var(--body);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .sprinkle {
-      animation: none;
-    }
   }
 
   @media screen and (min-width: 1024px) {

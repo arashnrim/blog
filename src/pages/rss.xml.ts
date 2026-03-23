@@ -8,7 +8,7 @@ export const GET: APIRoute = async (context) => {
   return rss({
     title: "function()",
     description:
-      "Arash's blog to share experiences, thoughts, and stories about tech as an individual and student.",
+      "Arash's blog: a space for the gathering of thoughts, experiences, and reflections as an aspiring technologist, introspective human, and lifelong student.",
     site: context.site || "",
     trailingSlash: false,
     stylesheet: "/rss/styles.xsl",

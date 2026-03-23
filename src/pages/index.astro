@@ -1,12 +1,9 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import PostCard from "@components/PostCard.astro";
-import { getCollection } from "astro:content";
 import Prompt from "@components/Prompt.astro";
-import { Icon } from "astro-icon/components";
-import UnstyledAnchor from "@components/UnstyledAnchor.astro";
-import Search from "@components/Search.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 let posts = await getCollection("posts");
 posts = posts.sort((a, b) => {
@@ -37,9 +34,10 @@ posts = posts.sort((a, b) => {
 
   <section id="preface" class="container">
     <p>
-      Writing has always made me feel better — to think through things and form
-      opinions, to vent, and to explore. It's something I want to remain close
-      to, so this blog is one of several ways I'm keeping this close to heart.
+      To me, writing is an avenue to self-improvement — it allows me to think
+      through things and form opinions, to vent, and to explore. It's something
+      I want to remain close to, so this blog is one of several ways I'm keeping
+      this close to heart.
     </p>
 
     <p>
@@ -60,6 +58,12 @@ posts = posts.sort((a, b) => {
       > so we can have a chat about it!
     </p>
 
+    <p>
+      <a href="/rss.xml"
+        >Are you using <abbr title="Really Simple Syndication">RSS</abbr>?</a
+      >
+    </p>
+
     <Prompt title="Two halves, one ecosystem" icon="ph:plant" kind="muted">
       <p style="margin: 0">
         I’m trying out something new to bring this and my <a
@@ -71,13 +75,6 @@ posts = posts.sort((a, b) => {
         about and figure stuff out!
       </p>
     </Prompt>
-
-    <section id="rss">
-      <p>Alternative ways to read:</p>
-      <UnstyledAnchor href="/rss.xml">
-        <Icon name="ph:rss-fill" />
-      </UnstyledAnchor>
-    </section>
 
     <!-- <section id="search-container">
       <Search />
@@ -96,11 +93,7 @@ posts = posts.sort((a, b) => {
   }
 
   #hero__description {
-    margin: 0 !important;
-  }
-
-  #preface {
-    padding-bottom: 0;
+    margin: 0;
   }
 
   #posts {
@@ -108,19 +101,6 @@ posts = posts.sort((a, b) => {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-  }
-
-  #rss {
-    margin: 2em 0;
-  }
-
-  #rss * {
-    display: inline;
-    vertical-align: middle;
-  }
-
-  #rss [data-icon] {
-    font-size: calc(var(--body) * 1.5);
   }
 
   @media screen and (min-width: 1024px) {

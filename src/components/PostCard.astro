@@ -10,10 +10,12 @@ interface Props {
 ---
 
 <div class="post" id={post.id} transition:name={`${post.id}__card`}>
-  <h2 transition:name={`${post.id}__title`}>
-    {post.data.title}
-  </h2>
-  <p>{post.data.description}</p>
+  <div class="post__info">
+    <h2 transition:name={`${post.id}__title`}>
+      {post.data.title}
+    </h2>
+    <p>{post.data.description}</p>
+  </div>
   <UnstyledAnchor href={`/posts/${post.id}`} />
 
   <PostMetadata entry={post} />
@@ -47,16 +49,12 @@ interface Props {
     border-color: #2a2a2a;
   }
 
-  .post * {
-    margin: 0;
-  }
-
-  .post h2 {
-    margin-top: 0;
-  }
-
-  .post h2 + p {
+  .post__info {
     margin-bottom: 2em;
+  }
+
+  .post__info * {
+    margin: 0;
   }
 </style>
 
