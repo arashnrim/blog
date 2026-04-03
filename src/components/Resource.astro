@@ -8,11 +8,15 @@ interface Link {
 interface Props {
   links: Link[];
   customBody?: string;
+  isGardenResource: boolean;
 }
-const { links, customBody } = Astro.props;
+const { links, customBody, isGardenResource = false } = Astro.props;
 ---
 
-<Prompt kind="resource" title={links.length == 1 ? "Resource" : "Resources"}>
+<Prompt
+  kind={isGardenResource ? "garden" : "resource"}
+  title={links.length == 1 ? "Resource" : "Resources"}
+>
   <span
     >{
       customBody
@@ -21,9 +25,7 @@ const { links, customBody } = Astro.props;
     }</span
   >
 
-  <section
-    class="grid grid-cols-1 gap-5 pt-5 md:grid-cols-2 resource__link-container"
-  >
+  <section class="resource__link-container">
     {
       links.map((link) => (
         <a

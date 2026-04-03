@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 interface Props {
   title?: string;
   icon?: string;
-  kind: "info" | "warn" | "danger" | "resource" | "muted";
+  kind: "info" | "warn" | "danger" | "resource" | "muted" | "garden";
 }
 const { title, icon: customIcon, kind } = Astro.props;
 const icon = {
@@ -13,6 +13,7 @@ const icon = {
   danger: "solar:danger-bold-duotone",
   resource: "solar:link-minimalistic-bold-duotone",
   muted: "solar:info-circle-bold-duotone",
+  garden: "ph:plant",
 };
 ---
 
