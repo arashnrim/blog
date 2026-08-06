@@ -5,6 +5,7 @@ import GlobalStyles from "@styles/GlobalStyles.astro";
 import Header from "@components/Header.astro";
 import PostSEO from "@components/PostSEO.astro";
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -28,6 +29,9 @@ const isTopicsPage = Astro.url.pathname.startsWith("/topics/");
       title="function()"
       href={new URL("rss.xml", Astro.site)}
     />
+
+    <Font cssVariable="--font-general-sans" />
+    <Font cssVariable="--font-jetbrains-mono" />
 
     {isTopicsPage && <meta name="robots" content="noindex" />}
 
