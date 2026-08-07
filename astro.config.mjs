@@ -53,6 +53,7 @@ export default defineConfig({
       },
     },
   ],
+  compressHTML: true,
   integrations: [
     expressiveCode({
       theme: ["github-dark-default"],

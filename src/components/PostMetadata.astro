@@ -29,7 +29,7 @@ const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
       {
         entry.data.updatedDate && (
           <span class="post__original-date">
-            {` (first published ${new Date(
+            {`(first published ${new Date(
               entry.data.publishedDate,
             ).toLocaleDateString("en-SG", {
               day: "numeric",
