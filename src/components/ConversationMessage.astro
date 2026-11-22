@@ -4,9 +4,9 @@ const { fromSelf, senderName } = Astro.props;
 
 <div class:list={[{ conversation__self: fromSelf }, "conversation__message"]}>
   <slot class="test" />
-  <span class="conversation__message_sender"
-    >{fromSelf ? "Me" : senderName || ""}</span
-  >
+  <span class="conversation__message_sender">
+    {fromSelf ? "Me" : senderName || ""}
+  </span>
 </div>
 
 <style>
@@ -18,7 +18,7 @@ const { fromSelf, senderName } = Astro.props;
 
   .conversation__message_sender {
     font-size: 0.8em;
-    color: #8a8a8a;
+    color: #848484;
   }
 
   .conversation__self {

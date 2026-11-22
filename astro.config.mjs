@@ -56,21 +56,15 @@ export default defineConfig({
   compressHTML: true,
   integrations: [
     expressiveCode({
-      theme: ["github-dark-default"],
+      themes: ["github-dark-default"],
       styleOverrides: {
         uiFontFamily:
           'var(--font-general-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
         codeFontFamily:
           'var(--font-jetbrains-mono), "Courier New", Courier, monospace',
-        codeFontSize: "calc(var(--body) * 0.9)",
       },
     }),
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-        theme: "aurora-x",
-      },
-    }),
+    mdx(),
     icon(),
     sitemap({
       serialize: (item) => {

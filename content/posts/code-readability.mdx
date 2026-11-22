@@ -36,20 +36,20 @@ My language of choice at the time of writing is TypeScript, and ESLint is an exc
 
 0. To begin, install ESLint, Prettier, and Prettier's ESLint config and plugin as dev dependencies.
 
-   ```sh
+   ```sh frame="code"
    # Of course, you can use your Node package manager of choice!
    pnpm i -D eslint prettier eslint-config-prettier eslint-plugin-prettier
    ```
 
 1. Next, initialise ESLint in your repository.
 
-   ```sh
+   ```sh frame="code"
    pnpx eslint --init
    ```
 
 2. Follow the wizard and remove any plugins that ESLint has installed by default (except for the TypeScript plugin if you're using TypeScript, obviously), then add `plugin:prettier/recommended`.
 
-   ```sh title="eslintrc.*"
+   ```sh frame="code" title="eslintrc.*"
    "plugins": ["plugin:prettier/recommended"]
    ```
 

@@ -17,41 +17,35 @@ const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
   <div>
     <Icon name="solar:calendar-bold-duotone" />
     <span>
-      {
-        new Date(
-          entry.data.updatedDate || entry.data.publishedDate,
-        ).toLocaleDateString("en-SG", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        })
-      }
-      {
-        entry.data.updatedDate && (
-          <span class="post__original-date">
-            {`(first published ${new Date(
-              entry.data.publishedDate,
-            ).toLocaleDateString("en-SG", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })})`}
-          </span>
-        )
-      }</span
-    >
+      {new Date(
+        entry.data.updatedDate || entry.data.publishedDate,
+      ).toLocaleDateString("en-SG", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })}
+      {entry.data.updatedDate && (
+        <span class="post__original-date">
+          {`(first published ${new Date(
+            entry.data.publishedDate,
+          ).toLocaleDateString("en-SG", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })})`}
+        </span>
+      )}
+    </span>
   </div>
   <div>
     <Icon name="solar:tag-bold-duotone" />
     <span class="post__tags">
-      {
-        topics &&
-          topics.map((topic) => (
-            <UnstyledAnchor href={`/topics/${topic.id}`}>
-              <span class="badge">{topic.data.name}</span>
-            </UnstyledAnchor>
-          ))
-      }
+      {topics &&
+        topics.map((topic) => (
+          <UnstyledAnchor href={`/topics/${topic.id}`}>
+            <span class="badge">{topic.data.name}</span>
+          </UnstyledAnchor>
+        ))}
     </span>
   </div>
 </div>
@@ -68,7 +62,7 @@ const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
   }
 
   .post__original-date {
-    color: #8a8a8a;
+    color: #848484;
   }
 
   .post__tags {
