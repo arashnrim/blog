@@ -9,11 +9,9 @@ interface Props {
 }
 ---
 
-<div class="post" id={post.id} transition:name={`${post.id}__card`}>
+<div class="post" id={post.id}>
   <div class="post__info">
-    <h2 transition:name={`${post.id}__title`}>
-      {post.data.title}
-    </h2>
+    <h2>{post.data.title}</h2>
     <p>{post.data.description}</p>
   </div>
   <UnstyledAnchor href={`/posts/${post.id}`} />

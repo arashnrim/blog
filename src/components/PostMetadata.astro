@@ -13,7 +13,7 @@ const { entry } = Astro.props;
 const topics: Topic[] | undefined = await getEntries(entry.data.topics || []);
 ---
 
-<div transition:name={`${entry.id}__metadata`} class="post__metadata">
+<div class="post__metadata">
   <div>
     <Icon name="solar:calendar-bold-duotone" />
     <span>

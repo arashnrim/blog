@@ -12,7 +12,6 @@ import expressiveCode from "astro-expressive-code";
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.arash.codes",
-  trailingSlash: "never",
   fonts: [
     {
       provider: fontProviders.local(),

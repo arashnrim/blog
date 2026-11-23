@@ -1,20 +1,24 @@
 ---
-import UnstyledAnchor from "./UnstyledAnchor.astro";
+import UnstyledAnchor from "@components/UnstyledAnchor.astro";
+import Search from "@components/Search.astro";
 ---
 
-<header transition:name="header" class="container">
+<header class="container">
   <UnstyledAnchor href="/">
     <h1 class="logo">fn()</h1>
   </UnstyledAnchor>
+  <Search />
 </header>
 
 <style>
   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: calc(var(--section-padding) - 0.25em - 3px);
     z-index: 1000;
-    width: fit-content;
   }
 
   .logo {

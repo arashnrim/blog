@@ -29,6 +29,7 @@ const isTopicsPage = Astro.url.pathname.startsWith("/topics/");
       title="function()"
       href={new URL("rss.xml", Astro.site)}
     />
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
 
     <Font cssVariable="--font-general-sans" />
     <Font cssVariable="--font-jetbrains-mono" />
@@ -40,9 +41,16 @@ const isTopicsPage = Astro.url.pathname.startsWith("/topics/");
     <script
       defer
       src="https://analytics.arash.codes/script.js"
-      data-website-id="0160d1ab-d18b-4fce-b392-177af5c32248"></script>
+      data-website-id="0160d1ab-d18b-4fce-b392-177af5c32248"
+    ></script>
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+    <script src="/pagefind/pagefind-highlight.js" type="module"></script>
 
-    <ClientRouter />
+    <script type="module">
+      window.addEventListener("DOMContentLoaded", async (event) => {
+        new PagefindHighlight({ highlightParam: "highlight" });
+      });
+    </script>
   </head>
 
   <body>
