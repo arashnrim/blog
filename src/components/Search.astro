@@ -1,13 +1,5 @@
 <div data-pf-theme="dark">
+  <pagefind-config highlight-param="highlight"></pagefind-config>
   <pagefind-modal-trigger></pagefind-modal-trigger>
   <pagefind-modal></pagefind-modal>
 </div>
-
-<script type="module">
-  window.addEventListener("DOMContentLoaded", async (event) => {
-    const { configureInstance } = window.PagefindComponents;
-    configureInstance("default", {
-      highlightParam: "highlight",
-    });
-  });
-</script>
